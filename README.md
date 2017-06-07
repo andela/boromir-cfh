@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 [![Build Status](https://travis-ci.org/andela/boromir-cfh.svg?branch=staging)](https://travis-ci.org/andela/boromir-cfh)
 
+=======
+>>>>>>> e9700a8c0647afe1a63a23991cd422dcb9ce057c
 Cards for Humanity - [http://cfh.io](http://cfh.io)
 ===========
 Cards for Humanity is a fast-paced online version of the popular card game, Cards Against Humanity, that gives you the opportunity to donate to children in need - all while remaining as despicable and awkward as you naturally are.
