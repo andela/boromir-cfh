@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/andela/boromir-cfh.svg?branch=master)](https://travis-ci.org/andela/boromir-cfh)
+[![Build Status](https://travis-ci.org/andela/boromir-cfh.svg?branch=staging)](https://travis-ci.org/andela/boromir-cfh)
 
 Cards for Humanity - [http://cfh.io](http://cfh.io)
 ===========
