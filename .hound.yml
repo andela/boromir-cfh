@@ -1,0 +1,5 @@
+java_script:
+  enabled: false
+eslint:
+  enabled: true
+  config_file: .eslintrc.json
