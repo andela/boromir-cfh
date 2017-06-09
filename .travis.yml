@@ -1,3 +1,7 @@
 language: node_js		  
 node_js: "stable"
-script: npm test
+  before_script:
+    -npm install
+  script: npm test
+  after_script:
+    - cat ./coverage/lcov.info | ./node_modules/coveralls

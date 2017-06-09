@@ -24,6 +24,7 @@
     "connect-flash": "~0.1.1",
     "connect-mongo": "~0.3.3",
     "console-stamp": "~0.1.1",
+    "coveralls": "^2.13.1",
     "dotenv": "^4.0.0",
     "express": "~3.4.0",
     "forever": "latest",
