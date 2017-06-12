@@ -1,7 +1,5 @@
 language: node_js		  
 node_js: "stable"
-  before_script:
-    -npm install
-  script: npm test
-  after_script:
-    - cat ./coverage/lcov.info | ./node_modules/coveralls
+before_script: npm install
+script: npm test
+after_script: cat ./coverage/lcov.info | ./node_modules/coveralls
