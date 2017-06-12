@@ -14,8 +14,9 @@
   },
   "scripts": {
     "start": "node node_modules/grunt-cli/bin/grunt",
-    "test": "node node_modules/grunt-cli/bin/grunt test",
-    "postinstall": "node node_modules/grunt-cli/bin/grunt install"
+    "test": "node ./node_modules/istanbul/lib/cli.js cover node_modules/grunt-cli/bin/grunt test",
+    "postinstall": "node node_modules/grunt-cli/bin/grunt install",
+    "coveralls": "istanbul cover _mocha -- test/**/ -R spec && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js"
   },
   "dependencies": {
     "async": "~0.2.9",
@@ -31,6 +32,7 @@
     "grunt": "~0.4.1",
     "grunt-bower-task": "~0.4.0",
     "grunt-cli": "~0.1.9",
+    "istanbul": "^0.4.5",
     "jade": "~0.35.0",
     "mean-logger": "~0.0.1",
     "mongoose": "~3.6.20",
