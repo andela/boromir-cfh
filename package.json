@@ -9,13 +9,15 @@
     "url": "https://github.com/cardsforhumanity/cardsforhumanity.git"
   },
   "engines": {
-    "node": "0.10.x",
-    "npm": "1.2.x"
+    "node": "6.9.4",
+    "npm": "3.10.10"
   },
   "scripts": {
     "start": "node node_modules/grunt-cli/bin/grunt",
     "test": "node node_modules/grunt-cli/bin/grunt test",
-    "postinstall": "node node_modules/grunt-cli/bin/grunt install"
+    "postinstall": "node node_modules/grunt-cli/bin/grunt install",
+    "cover": "istanbul cover _mocha",
+    "coveralls": "npm run cover -- test/**/ -R spec && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js"
   },
   "dependencies": {
     "async": "~0.2.9",
@@ -24,12 +26,14 @@
     "connect-flash": "~0.1.1",
     "connect-mongo": "~0.3.3",
     "console-stamp": "~0.1.1",
+    "coveralls": "^2.13.1",
     "dotenv": "^4.0.0",
     "express": "~3.4.0",
     "forever": "latest",
     "grunt": "~0.4.1",
     "grunt-bower-task": "~0.4.0",
     "grunt-cli": "~0.1.9",
+    "istanbul": "^0.4.5",
     "jade": "~0.35.0",
     "mean-logger": "~0.0.1",
     "mongoose": "~3.6.20",
