@@ -1,4 +1,4 @@
-[![Coverage Status](https://coveralls.io/repos/github/andela/boromir-cfh/badge.svg?branch=master)](https://coveralls.io/github/andela/boromir-cfh)
+[![Coverage Status](https://coveralls.io/repos/github/andela/boromir-cfh/badge.svg?branch=staging)](https://coveralls.io/github/andela/boromir-cfh?branch=staging)
 [![Build Status](https://travis-ci.org/andela/boromir-cfh.svg?branch=staging)](https://travis-ci.org/andela/boromir-cfh)
 
 Cards for Humanity - [http://cfh.io](http://cfh.io)
