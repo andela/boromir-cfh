@@ -3,4 +3,7 @@ public/lib
 .sass-cache/
 .DS_store
 c4h_keys.txt
-
+.env
+coverage/
+package-lock.json
+npm-debug.log
