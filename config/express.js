@@ -32,7 +32,7 @@ module.exports = function(app, passport, mongoose) {
     app.set('view engine', 'jade');
 
     //Enable jsonp
-    app.enable("jsonp callback");
+    app.enable("jsonp callback"); 
 
     app.configure(function() {
         //cookieParser should be above session
