@@ -9,11 +9,14 @@ Cards for Humanity is a fast-paced online version of the popular card game, Card
 
 Our Team
 --------
-Cards for Humanity was created at [Hack Reactor](http://www.hackreactor.com) by:
-* [Matt Silverstein](http://www.mattsilverstein.com/)
-* [Will Ngo](https://mrngoitall.net)
-* [Tyler McGinnis](http://www.tylermcginnis.com)
-* [David Gonzalez](http://www.truthyfalsy.com)
+Cards for Humanity was created at [Andela](https://www.andela.com) by:
+* Florence Okosun
+* Adetokunbo Adeleke
+* Elochuckwu Okonkwo
+* Femi Omedale
+* Itua Akhtor
+* Taiwo Sokunbi
+* Franklin Ajaps
 
 About the Game
 -------------
@@ -27,12 +30,34 @@ The app is completely functional across all devices - from iPhone to full-sized 
 
 ![alt-text](http://www.tylermcginnis.com/images/cfh3.png "Desktop with Cards")
 
-Our Tech Stack
+Installation
+----------
+* Ensure you have `git`, `node`, `npm` and `mongodb` correctly installed on your computer.
+* Download or clone this repo to your local computer.  Run `npm install` to install all prerequisite dependecies and frameworks.
+* Create a `.env` file. Update the `MONGOHQ_URL` field with a link to your development database.
+* Run `npm start` to start the app.
+* In your brower go to [localhost:3000](localhost:3000) to view the app.
+* To run tests use the command `npm run testk`.
+
+Tech Stack
 --------------
-Cards for Humanity uses AngularJS and Sass on the front-end, with Node.js/Express.js, MongoDB and Socket.io on the back-end. It's currently deployed to Amazon EC2. 
+### Back End
+-----------
+* NodeJS - Node is an asynchronous event driven JavaScript runtime designed to build scalable network applications
+* ExpressJs - A minimalist web framework for Node.js.
+* MongoDB - A javascript based highly scalable non relational database.
+* Socket io -  A platform for  real-time bidirectional event-based communication.
+* Passprt js - Authentication middleware for Node.js. 
 
-![alt-text](https://dl.dropboxusercontent.com/u/7390609/tech.png "Tech Stack Overview")
+### Front End
+--------
+* Angular 1x - A full fledged framework for building front end applications
+* Sass - CSS Extension Language.
 
+
+### Deployment
+-------
+* Heroku - A cloud based production environment (ensure you link your production database from the heroku dashboard)
 
 ## License
 
