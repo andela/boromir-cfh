@@ -20,6 +20,8 @@ var env = process.env.NODE_ENV = process.env.NODE_ENV || 'development',
     auth = require('./config/middlewares/authorization'),
     mongoose = require('mongoose');
 
+    mongooose.promise = Global.Promise;
+
 //Bootstrap db connection
 var db = mongoose.connect(config.db);
 
