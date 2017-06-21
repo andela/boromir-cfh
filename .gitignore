@@ -1,5 +1,4 @@
-node_modules
-public/lib
+node_modules/
 .sass-cache/
 .DS_store
 c4h_keys.txt
@@ -7,3 +6,4 @@ c4h_keys.txt
 coverage/
 package-lock.json
 npm-debug.log
+bower_components/
