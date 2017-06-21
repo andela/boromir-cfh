@@ -32,6 +32,8 @@
     "dotenv": "^4.0.0",
     "express": "~3.4.0",
     "forever": "latest",
+    "gulp": "^3.9.1",
+    "gulp-bower": "0.0.13",
     "gulp-eslint": "^4.0.0",
     "gulp-mocha": "^4.3.1",
     "gulp-nodemon": "^2.2.1",
