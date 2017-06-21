@@ -31,7 +31,7 @@ angular.module('mean.system')
   var addToNotificationQueue = function(msg) {
     notificationQueue.push(msg);
     if (!timeout) { // Start a cycle if there isn't one
-      setNotification();
+      setNotification()
     }
   };
   var setNotification = function() {
