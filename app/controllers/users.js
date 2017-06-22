@@ -186,3 +186,87 @@ exports.user = function(req, res, next, id) {
       next();
     });
 };
+
+module.exports.jwtsignup = (req, res) => {
+  if (!req.body.name || !req.body.email || !req.body.password) {
+    return res.status(401).json({ message: 'Incomplete user details' });
+  }
+  /**
+   * signup with jwt
+   */
+  User.findOne({
+    email: req.body.email
+  })
+    .exec((err, existingUser) => {
+      if (err) {
+        return res.json({
+          message: 'An Error Occured'
+        });
+      }
+      if (!existingUser) {
+        const user = new User(req.body);
+        user.avatar = avatars[user.avatar];
+        user.provider = 'jwt';
+        user.save((err) => {
+          if (err) {
+            return res.json({
+              message: 'Unable to save'
+            });
+          }
+          // Create the token
+          const token = user.generateJwtToken();
+
+          req.logIn(user, (err) => {
+            if (err) {
+              return res.json({
+                message: 'Error Occured while logging in'
+              });
+            }
+            return res.status(200).json({ message: 'successful login', token });
+          });
+        });
+      } else {
+        return res.json({
+          message: 'Existing user cannot sign up again. Please sign in'
+        });
+      }
+    }
+    );
+};
+
+module.exports.jwtSignIn = (req, res) => {
+  if (!req.body.email || !req.body.password) {
+    return res.status(401).json({ message: 'Enter all required field' });
+  }
+  // find the user
+  User.findOne(
+    {
+      email: req.body.email
+    },
+    (error, existingUser) => {
+      const user = new User(req.body);
+      if (error) {
+        return res.json({
+          message: 'An Error Occured'
+        });
+      }
+      if (!existingUser) {
+        return res.json({
+          message: 'Not an existing user'
+        });
+      } else if (existingUser) {
+        if (!existingUser.authenticate(req.body.password)) {
+          return res.json({
+            message: 'Invalid Password'
+          });
+        }
+      }
+      // Create the token
+      req.logIn(existingUser, () => {
+        const token = user.generateJwtToken();
+        // return the token as JSON
+        return res.status(200).json({ message: 'successful login', token });
+      });
+    }
+  );
+};
