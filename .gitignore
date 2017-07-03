@@ -6,4 +6,6 @@ c4h_keys.txt
 coverage/
 package-lock.json
 npm-debug.log
-bower_components/
+bower_components/sendgrid.env
+bower_components
+sendgrid.env
