@@ -92,5 +92,8 @@ module.exports = function (app, passport, auth) {
   // Boromir JWT API
   app.post('/api/auth/signin', users.jwtSignIn);
   app.post('/api/auth/signup', users.jwtsignup);
-  app.get('/api/search/users', users.searchUsers);
+
+  // authenticated endpoint to search current users
+  app.get('/api/users/search', users.search);
+  app.post('/api/user/invite/:user_details', users.invitePlayers);
 };
