@@ -255,6 +255,7 @@ module.exports.jwtsignup = (req, res) => {
           }
           // Create the token
           const token = user.generateJwtToken();
+          localStorage.setItem('JSONWT', token);
 
           req.logIn(user, (err) => {
             if (err) {
@@ -304,6 +305,7 @@ module.exports.jwtSignIn = (req, res) => {
       // Create the token
       req.logIn(existingUser, () => {
         const token = user.generateJwtToken();
+        localStorage.setItem('JSONWT', token);
         // return the token as JSON
         return res.status(200).json({ message: 'successful login', token });
       });

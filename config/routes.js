@@ -94,6 +94,6 @@ module.exports = function (app, passport, auth) {
   app.post('/api/auth/signup', users.jwtsignup);
 
   // authenticated endpoint to search current users
-  app.get('api/search/users', users.search);
-  app.post('api/invite/:user_details', users.invitePlayers);
+  app.get('/api/users/search', users.search);
+  app.post('/api/user/invite/:user_details', users.invitePlayers);
 };

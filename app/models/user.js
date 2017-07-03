@@ -111,15 +111,13 @@ UserSchema.methods = {
     if (!password) return '';
     return bcrypt.hashSync(password, bcrypt.genSaltSync(10));
   },
-  generateJwtToken: () => {
-    const expiry = new Date();
-    expiry.setDate(expiry.getDate() + 7);
+    generateJwtToken: () => {
 
     return jwt.sign({
       _id: this._id,
       email: this.email,
       name: this.name,
-      exp: parseInt(expiry.getDate() / 1000),
+      exp: Math.floor(Date.now() / 1000) + (60 * 60),
     }, process.env.JWT_SECRET);
   }
 };

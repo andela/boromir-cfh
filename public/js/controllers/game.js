@@ -9,23 +9,33 @@ angular.module('mean.system')
   $scope.invitedUsers = [];
   let makeAWishFacts = MakeAWishFactsService.getMakeAWishFacts();
   $scope.makeAWishFact = makeAWishFacts.pop();
-  $scope.pickCard = function (card) {
+
+  $scope.onKeyPress = function(){
+    const user = angular.element('#user').val();
+    game.sendTyping(user);
+  };
+  $scope.sendChat = function(){
+    game.sendChat($scope.msg);
+    $scope.msg = "";
+  };
+
+  $scope.pickCard = function(card) {
     if (!$scope.hasPickedCards) {
       if ($scope.pickedCards.indexOf(card.id) < 0) {
         $scope.pickedCards.push(card.id);
         if (game.curQuestion.numAnswers === 1) {
           $scope.sendPickedCards();
           $scope.hasPickedCards = true;
-        } else if (game.curQuestion.numAnswers === 2 &&
-            $scope.pickedCards.length === 2) {
-            // delay and send
-          $scope.hasPickedCards = true;
-          $timeout($scope.sendPickedCards, 300);
-        }
-      } else {
-        $scope.pickedCards.pop();
+        } else if (game.curQuestion.numAnswers === 2 && 
+        $scope.pickedCards.length === 2) {
+          // delay and send
+        $scope.hasPickedCards = true;
+        $timeout($scope.sendPickedCards, 300);
       }
+    } else {
+      $scope.pickedCards.pop();
     }
+  }
   };
 
   $scope.startGame = function () {
@@ -56,7 +66,7 @@ angular.module('mean.system')
       $scope.allUsers = [];
       $http({
         method: 'GET',
-        url: '/search/users'
+        url: 'api/users/search'
       }).then((response) => {
         response.data.map((eachUser) => {
           // adds users to an object containing users an invite has been sent to
@@ -88,7 +98,7 @@ angular.module('mean.system')
         };
         $http({
           method: 'POST',
-          url: '/invite/:userDetails',
+          url: '/api/user/invite/:userDetails',
           data: userDetails
         }).then((response) => {
           if (response.data.sent) {

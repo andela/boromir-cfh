@@ -4,6 +4,9 @@ angular.module('mean.system')
   var game = {
     id: null, // This player's socket ID, so we know who this player is
     gameID: null,
+    messages: [],
+    isTyping: '',
+    typingPlayer: '',
     players: [],
     playerIndex: 0,
     winningCard: -1,
@@ -217,6 +220,24 @@ angular.module('mean.system')
   game.pickWinning = function(card) {
     socket.emit('pickWinning',{card: card.id});
   };
+
+    socket.on('chat message', function (data) {
+      game.messages.push(data);
+      game.isTyping = "";
+    });
+
+    socket.on('someone is typing', function (data) {
+      game.isTyping = data.typing;
+      game.typingPlayer = data.user;
+    });
+
+    game.sendChat = function (msg) {
+      socket.emit('chat message', msg);
+    };
+
+    game.sendTyping = function (user) {
+      socket.emit('someone is typing', user);
+    };
 
   decrementTime();
 

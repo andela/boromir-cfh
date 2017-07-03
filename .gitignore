@@ -7,5 +7,7 @@ coverage/
 package-lock.json
 npm-debug.log
 bower_components/sendgrid.env
-bower_components
+bower_components/
 sendgrid.env
+scratch/
+public/lib/
