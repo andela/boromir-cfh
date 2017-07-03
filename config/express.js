@@ -23,6 +23,9 @@ module.exports = function (app, passport, mongoose) {
   //Setting the fav icon and static folder
   app.use(express.favicon());
   app.use(express.static(config.root + '/public'));
+  
+  // body parser
+  app.use(express.bodyParser());
 
   //Don't use logger for test env
   if (process.env.NODE_ENV !== 'test') {
@@ -41,7 +44,6 @@ module.exports = function (app, passport, mongoose) {
     app.use(express.cookieParser());
 
     //bodyParser should be above methodOverride
-    app.use(express.bodyParser());
     app.use(express.methodOverride());
 
     //express/mongo session storage
