@@ -9,6 +9,15 @@ angular.module('mean.system')
     var makeAWishFacts = MakeAWishFactsService.getMakeAWishFacts();
     $scope.makeAWishFact = makeAWishFacts.pop();
 
+  $scope.onKeyPress = function(){
+    const user = angular.element('#user').val();
+    game.sendTyping(user);
+  };
+  $scope.sendChat = function(){
+    game.sendChat($scope.msg);
+    $scope.msg = "";
+  };
+
     $scope.pickCard = function(card) {
       if (!$scope.hasPickedCards) {
         if ($scope.pickedCards.indexOf(card.id) < 0) {
