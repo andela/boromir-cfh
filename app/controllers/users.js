@@ -63,8 +63,10 @@ exports.checkAvatar = function (req, res) {
     })
     .exec((err, user) => {
       if (user.avatar !== undefined) {
+        const token = user.generateJwtToken();
+        localStorage.setItem('JSONWT', token);
         res.redirect('/#!/');
-      } else {
+      } else {       
         res.redirect('/#!/choose-avatar');
       }
     });
@@ -119,6 +121,8 @@ exports.avatars = function (req, res) {
       _id: req.user._id
     })
     .exec((err, user) => {
+      const token = user.generateJwtToken();
+      localStorage.setItem('JSONWT', token);
       user.avatar = avatars[req.body.avatar];
       user.save();
     });
