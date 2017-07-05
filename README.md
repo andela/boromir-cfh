@@ -7,17 +7,6 @@ Cards for Humanity - [http://cfh.io](http://cfh.io)
 
 Cards for Humanity is a fast-paced online version of the popular card game, Cards Against Humanity, that gives you the opportunity to donate to children in need - all while remaining as despicable and awkward as you naturally are.
 
-Our Team
---------
-Cards for Humanity was created at [Andela](https://www.andela.com) by:
-* Florence Okosun
-* Adetokunbo Adeleke
-* Elochuckwu Okonkwo
-* Femi Omedale
-* Itua Akhtor
-* Taiwo Sokunbi
-* Franklin Ajaps
-
 About the Game
 -------------
 The game is simple - each player is given 10 answer cards which are used to fill in the question card. For each round, one player is the "Card Czar". Their sole job is to select a submitted answer card that they think best fits the question. Whoever's card is selected wins a point for the round.
@@ -34,6 +23,7 @@ Installation
 ----------
 * Ensure you have `git`, `node`, `npm` and `mongodb` correctly installed on your computer.
 * Download or clone this repo to your local computer.  Run `npm install` to install all prerequisite dependecies and frameworks.
+* Start an instance of mongodb using the command `mongod`.
 * Create a `.env` file. Update the `MONGOHQ_URL` field with a link to your development database.
 * Run `npm start` to start the app.
 * In your brower go to [localhost:3000](localhost:3000) to view the app.
