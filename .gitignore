@@ -6,5 +6,8 @@ c4h_keys.txt
 coverage/
 package-lock.json
 npm-debug.log
+bower_components/sendgrid.env
 bower_components/
-public/lib
+sendgrid.env
+scratch/
+public/lib/
