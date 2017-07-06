@@ -1,7 +1,7 @@
 <div id="main-bod" ng-controller="IndexController">
 <!-- Fixed Logo & Menu Bar Start -->
-<nav id="signup" class="navbar navbar-default navbar-auth navbar-fixed">
-      <div class="container">
+ <nav id="signup" class="navbar navbar-default navbar-auth">
+    <div class="container">
         <div class="navbar-header page-scroll">
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
             <span class="sr-only">Toggle navigation</span>
@@ -9,63 +9,59 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand page-scroll" href="#page-top">Cards For Humanity</a>
+          <a class="navbar-brand page-scroll" href="/">Cards For Humanity</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
-            <li class="hidden">
+            <li clasxs="hidden">
               <a href="#page-top"></a>
             </li>
             <li><a onClick="scroll(0,0)" href="/" class="page-scroll">HOME</a></li>
           </ul>
-        </div><!--/.nav-collapse -->
+        </div>
       </div>
-    </nav>
-<!-- Fixed Logo & Menu Bar End -->
+   </nav>
 
-<!-- Landing Start -->
-<div class="wpb-teaser parallax-background" id="homer">
-  <div class="background-opacity"></div> 
-  <div class="modified-container">
-    <div class="row" id="main-text"> 
-    <!-- Teaser Text Start -->
-    <div id="landing-logo">
-      <h2 id="slogan">Sign in with:</h2>
-      <div id="login-buttons">
-        <a href="/auth/facebook"><img class="login-item" src="/img/icons/facebook.png"></a>
-        <a href="/auth/github"><img class="login-item" src="/img/icons/github.png"></a>
-        <a href="/auth/twitter"><img class="login-item" src="/img/icons/twitter.png"></a>
-        <a href="/auth/google"><img class="login-item" src="/img/icons/google.png"></a>
-      </div>
-      <p id="create">Or log in below:</p>
-
-      <div class="sign-body">
-        <div class="more-sign">
+  <div>
+    <div class="container text-center authentication" >
+    <div class="row">
+      <div class="col-sm-6 col-sm-offset-3 authentication">
+      <div class="panel panel-default signup-panel">
+        <div id="login-buttons" class="panel-heading">
+          <span>Sign In</span>
+        </div>
+        <div class="panel-body">
+          <p>Sign In With:</p>
+          <hr>
+          <a href="/auth/facebook"><i class="fa fa-facebook fa-3x"></i></a>
+          <a href="/auth/github"><i class="fa fa-github fa-3x"></i></a>
+          <a href="/auth/twitter"><i class="fa fa-twitter fa-3x"></i></a>
+          <a href="/auth/google"><i class="fa fa-google fa-3x"></i></a>
+          <hr>
+          <p>Or log in below:</p>
           <div class="sign-error" ng-show="showError() === 'invalid'">
             Please check your username/password and try again.
           </div>
-          <form class="signup form-horizontal">
-            <div class="control-group">
-              <label for="email" class="control-label"></label>
-              <div class="controls">
-                <input class="input-info" id="email" type="text" ng-model="email" name="email" placeholder="Email" required novalidate />
-              </div>
+          <form>
+            <div class="form-group">
+              <label for="email"></label>
+               <input class="form-control" id="email" type="email" name="email" ng-model="email" placeholder="Email" required novalidate />
             </div>
-            <div class="control-group">
-              <label for="password" class="control-label"></label>
-              <div class="controls">
-                <input class="input-info" id="password" type="password" ng-model="password" name="password" placeholder="Password" required novalidate />
-              </div>
+            <div class="form-group">
+              <label for="password"></label>
+                <input class="form-control" id="password" type="password" name="password" ng-model="password" placeholder="Password" required novalidate />
             </div>
-            <div class="form-actions top-margin">
-              <button id="sign-up-btn-other" ng-click="signIn()" type='submit'>Sign In</button>
+          
+            <div class="form-group">
+               <div class="col-md-offset-3 col-md-6 text-center">
+              <button class="btn btn-default btn-lg" ng-click="signIn()" type='submit'>Sign In</button>
             </div>
+           </div>
           </form>
-        </div>
-      </div>
-    </div>
+       </div>
+       </div>
     </div>
     </div>
   </div>
+  </div>
 </div>
-
