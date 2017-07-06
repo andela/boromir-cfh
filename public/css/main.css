@@ -42,14 +42,14 @@ body {
 .navbar-custom .navbar-brand:focus,
 .navbar-custom .navbar-brand:active,
 .navbar-custom .navbar-brand.active {
-  color: #fec503;
+  color: #FC9800;
 }
 
 .navbar-auth .navbar-brand:hover,
 .navbar-auth .navbar-brand:focus,
 .navbar-auth .navbar-brand:active,
 .navbar-auth .navbar-brand.active {
-  color: #fec503;
+  color: #FC9800;
 }
 
 .navbar-custom .navbar-collapse {
@@ -80,12 +80,12 @@ body {
 
 .navbar-custom .navbar-toggle:hover,
 .navbar-custom .navbar-toggle:focus {
-  background-color: #fec503;
+  background-color: #FC9800;
 }
 
 .navbar-auth .navbar-toggle:hover,
 .navbar-auth .navbar-toggle:focus {
-  background-color: #fec503;
+  background-color: #FC9800;
 }
 
 .navbar-custom .nav li a {
@@ -105,13 +105,13 @@ body {
 }
 .navbar-custom .nav li a:hover,
 .navbar-custom .nav li a:focus {
-  color: #fec503;
+  color: #FC9800;
   outline: none;
 }
 
 .navbar-auth .nav li a:hover,
 .navbar-auth .nav li a:focus {
-  color: #fec503;
+  color: #FC9800;
   outline: none;
 }
 .navbar-custom .navbar-nav > .active > a {
@@ -164,7 +164,7 @@ body {
 
   .navbar-custom .navbar-brand {
   	color: #ffffff;
-  	font-family: "Kaushan Script", "Helvetica Neue", Helvetica, Arial, cursive;
+  	font-family: "Berkshire Swash", cursive;
     font-size: 2em;
     -webkit-transition: all 0.3s;
     -moz-transition: all 0.3s;
@@ -173,7 +173,7 @@ body {
 
   .navbar-auth .navbar-brand {
   	color: #ffffff;
-  	font-family: "Kaushan Script", "Helvetica Neue", Helvetica, Arial, cursive;
+  	font-family: "Berkshire Swash", cursive;
     font-size: 1.5em;
     -webkit-transition: all 0.3s;
     -moz-transition: all 0.3s;
@@ -249,15 +249,16 @@ header .intro-text .intro-lead-in .cards-for{
 }
 
 header .intro-text .intro-lead-in .cards-for-info{
-  font-family: 'Source Sans Pro', sans-serif;
-  font-size: 25px;
+  font-family: "Averia Gruesa Libre", cursive;
+  font-size: 20px;
   line-height: 22px;
   margin-top: -20px;
   margin-bottom: 180px;
 }
 
 header .intro-text .intro-lead-in .button{
-  font-family: 'Source Sans Pro', sans-serif;
+  font-family: "Averia Gruesa Libre", cursive;
+  font-size: 20px;
   font-size: 25px;
   line-height: 22px;
   margin-top: -20px;
@@ -270,29 +271,29 @@ header .intro-text .intro-lead-in .cards-for-info span{
 }
 
 header .intro-text .intro-lead-in .btn-info{
- font-weight: bold;
  width: 45%;
- height: 35px;
+ padding: 17px;
  margin-left: -30px;
+ font-size: 18px;
  border: none;
  border-right: 20px;
  border-radius: 3px !important;
- background: #CC621A;
+ background: #FC9800;
  -webkit-box-shadow: 10px 10px 5px -8px rgba(0,0,0,0.75);
 -moz-box-shadow: 10px 10px 5px -8px rgba(0,0,0,0.75);
 box-shadow: 10px 10px 5px -8px rgba(0,0,0,0.75);
 }
 
 header .intro-text .intro-lead-in .btn-info:hover{
-	background: #FC9800;
+	background: #FC9D00;
 }
 
 header .intro-text .intro-lead-in .btn-default{
-	font-weight: bold;
  	width: 45%;
- 	height: 35px;
+  padding: 17px;
+  font-size: 18px;
  	border: none;
- 	color:#CC621A;
+ 	color:#FC9800;
  	margin-left: 10px;
 	-webkit-box-shadow: 10px 10px 5px -8px rgba(0,0,0,0.75);
 	-moz-box-shadow: 10px 10px 5px -8px rgba(0,0,0,0.75);
@@ -317,7 +318,7 @@ header .intro-text .intro-heading {
 }
 
 header .intro-text .intro-heading .white-card{
-  font-family: 'Source Sans Pro', sans-serif;
+  font-family: "Averia Gruesa Libre", cursive;
  	height: 350px;
  	width: 240px;
  	font-weight: bold;
@@ -333,7 +334,7 @@ header .intro-text .intro-heading .white-card{
 }
 
 header .intro-text .intro-heading .black-card{
-  font-family: 'Source Sans Pro', sans-serif;
+  font-family: "Averia Gruesa Libre", cursive;
  	height: 350px;
  	width: 240px;
  	font-weight: bold;
@@ -350,8 +351,17 @@ header .intro-text .intro-heading .black-card{
 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4), 0 6px 20px 0 rgba(0, 0, 0, 0.4);
 }
 
+header .intro-text .intro-heading .black-card h3{
+  margin-top: -1px;
+}
+
+header .intro-text .intro-heading .white-card h3{
+  margin-top: -10px;
+}
+
 header .intro-text .intro-heading .black-card-info{
-  font-family: 'Source Sans Pro', sans-serif;
+  font-family: "Averia Gruesa Libre", cursive;
+  font-size: 20px;
  	height: 40px;
  	width: 30px;
  	font-weight: bold;
@@ -360,12 +370,13 @@ header .intro-text .intro-heading .black-card-info{
  	margin-left: 10px;
  	padding: 20px 10px 10px 10px;
  	color: #f5f5f5;
- 	margin-top: 230px;
+ 	margin-top: 200px;
  	background: #212121;
 }
 
 header .intro-text .intro-heading .white-card-info{
-  font-family: 'Source Sans Pro', sans-serif;
+  font-family: "Averia Gruesa Libre", cursive;
+  font-size: 20px;
  	height: 40px;
  	width: 30px;
  	border: 1px solid black;
@@ -381,7 +392,8 @@ header .intro-text .intro-heading .white-card-info{
 header .intro-text .intro-heading .info-text{
  	font-weight: bold;
  	margin-top: -2.0em;
- 	font-size: 12px;
+  margin-left: 20px;
+ 	font-size: 10px;
 }
 @media (min-width: 768px) {
   header .intro-text {
