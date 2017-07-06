@@ -18,7 +18,7 @@ gulp.task('watch', () => {
 
 gulp.task('angular', () => {
 	gulp.src('app/bower_components/angular/**/*.js')
-	.pipe(gulp.dest('public/lib/angular'))
+    .pipe(gulp.dest('public/lib/angular'));
 });
 
 gulp.task('bootstrap', () => {
@@ -26,7 +26,7 @@ gulp.task('bootstrap', () => {
     .pipe(gulp.dest('public/lib/bootstrap'));
 });
 gulp.task('jquery', () => {
-  gulp.src('bower_components/juery/**/*')
+  gulp.src('bower_components/jquery/**/*')
     .pipe(gulp.dest('public/lib/jquery'));
 });
 gulp.task('underscore', () => {
