@@ -8,9 +8,6 @@ body {
   background:linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),url('../img/cross-culture.jpg') center center fixed !important;
   -webkit-background-size: cover;
   -moz-background-size: cover;
-  height: 750px;
-  overflow: visible;
-  padding-bottom: 30px;
   -o-background-size: cover !important;
   background-size: cover !important;
 	background-repeat: no-repeat !important;
@@ -568,7 +565,7 @@ header .intro-text .intro-heading .info-text{
 .signup-text{
   color: black
 }
-.fa{
+.panel-body .fa{
   width: 100px;
 }
 .fa-facebook{
@@ -592,6 +589,10 @@ header .intro-text .intro-heading .info-text{
   background-color: rgba(55, 49, 84, 1);
   border-top: rgba(55, 49, 84, 1);
   border-color: rgba(55, 49, 84, 1);
+}
+
+.panel-default{
+  margin-bottom: 60px;
 }
 
 .panel {
@@ -630,8 +631,12 @@ hr{
   border: none;
   width: 70%;
 }
-.btn-default:hover{
+.form-group .btn-default:hover{
   background: #c98c2a;
+}
+
+.authentication{
+ 
 }
 
 /** login **/
