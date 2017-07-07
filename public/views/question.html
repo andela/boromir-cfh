@@ -71,7 +71,6 @@
               </div> 
               <div class="modal-body">
                 <div> 
-                  <p> Invitation Mails sent to {{invitedUsers.length}}  Users</p>
                   <p>Number of users selected: {{selectedUsers.length}}</p>
                   <span> Search for users <input placeholder='search for users...' type="text" ng-keyup="searchUsers()" ng-model="searchTerm"> </span>
                 </div>
@@ -84,7 +83,7 @@
                   <p ng-show="filteredUsers < 1">Cannot find players with the specified search term in the database</p>
                 </div>
                 </div> 
-                <button ng-click="invitePlayers()" ng-disabled="(invitedUsers.length + selectedUsers.length) > 11">
+                <button ng-click="invitePlayers()">
                   Invite selected players
                 </button>
                 <button data-dismiss="modal">Cancel</button>

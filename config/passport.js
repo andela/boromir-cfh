@@ -61,6 +61,7 @@ module.exports = function(passport) {
             callbackURL: config.twitter.callbackURL
         },
         function(token, tokenSecret, profile, done) {
+          // localStorage.setItem('email', profile.emails[0].value);
             User.findOne({
                 'twitter.id_str': profile.id
             }, function(err, user) {
@@ -72,7 +73,8 @@ module.exports = function(passport) {
                         name: profile.displayName,
                         username: profile.username,
                         provider: 'twitter',
-                        twitter: profile._json
+                        twitter: profile._json,
+                        email: profile.emails[0].value,
                     });
                     user.save(function(err) {
                         if (err) console.log(err);
@@ -92,6 +94,7 @@ module.exports = function(passport) {
             callbackURL: config.facebook.callbackURL
         },
         function(accessToken, refreshToken, profile, done) {
+          // localStorage.setItem('email', profile.emails[0].value);
             User.findOne({
                 'facebook.id': profile.id
             }, function(err, user) {
@@ -99,7 +102,6 @@ module.exports = function(passport) {
                     return done(err);
                 }
                 if (!user) {
-                    console.log(profile);
                     user = new User({
                         name: profile.displayName,
                         email: (profile.emails && profile.emails[0].value) || '',
@@ -127,6 +129,7 @@ module.exports = function(passport) {
             callbackURL: config.github.callbackURL
         },
         function(accessToken, refreshToken, profile, done) {
+          // localStorage.setItem('email', profile.emails[0].value);
             User.findOne({
                 'github.id': profile.id
             }, function(err, user) {
@@ -159,6 +162,7 @@ module.exports = function(passport) {
             callbackURL: config.google.callbackURL
         },
         function(accessToken, refreshToken, profile, done) {
+          // localStorage.setItem('email', profile.emails[0].value);
             User.findOne({
                 'google.id': profile.id
             }, function(err, user) {

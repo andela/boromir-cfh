@@ -21,6 +21,12 @@ gulp.task('angular', () => {
 	.pipe(gulp.dest('public/lib/angular'))
 });
 
+// emojiarea module
+gulp.task('emojiarea', () => {
+  gulp.src('bower_components/emojionearea/dist/**/*')
+    .pipe(gulp.dest('public/lib/emojionearea'));
+});
+
 gulp.task('bootstrap', () => {
   gulp.src('bower_components/bootstrap/**/*')
     .pipe(gulp.dest('public/lib/bootstrap'));

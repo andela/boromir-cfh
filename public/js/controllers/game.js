@@ -52,29 +52,24 @@ angular.module('mean.system')
 
   $scope.getUsers = function () {
     // Display all users from mongoDB into modal
+    $scope.searchTerm = '';
     $scope.sentSuccessfully = 0;
     $scope.selectedUsers = [];
-    if ($scope.invitedUsers.length >= 11) {
-      const myModal = $('#playerRequirement');
-      myModal.find('.modal-body')
-      .text(`Sorry! you have sent the maximum number of invites possible, \t
-      You cannot invite more than 11 players`);
-      myModal.modal('show');
-    } else {
-      const myModal = $('#invite-players');
-      myModal.modal('show');
-      $scope.allUsers = [];
-      $http({
-        method: 'GET',
-        url: 'api/users/search'
-      }).then((response) => {
-        response.data.map((eachUser) => {
-          // adds users to an object containing users an invite has been sent to
+    const myModal = $('#invite-players');
+    myModal.modal('show');
+    $scope.allUsers = [];
+    $http({
+      method: 'GET',
+      url: 'api/users/search'
+    }).then((response) => {
+      response.data.map((eachUser) => {
+        // Excludes current user from the list of users that can recieve invites
+        if (eachUser.email !== localStorage.email) {
           $scope.allUsers.push(eachUser);
-        });
+        }
       });
-      $scope.filteredUsers = $scope.allUsers;
-    }
+    });
+    $scope.filteredUsers = $scope.allUsers;
   };
 
   $scope.countPlayers = function () {

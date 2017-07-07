@@ -31,6 +31,7 @@ angular.module('mean.system')
         .success(function (data) {
           if (data.message === 'successful login') {
             localStorage.setItem('JSONWT', JSON.stringify(data.token));
+            localStorage.setItem('email', $scope.email);
             $location.path('/');
             $window.location.reload();
           } else {
@@ -45,6 +46,7 @@ angular.module('mean.system')
         .success(function (data) {
           if (data.message === 'successful login') {
             localStorage.setItem('JSONWT', JSON.stringify(data.token));
+            localStorage.setItem('email', $scope.email);
             $location.path('/');
             $window.location.reload();
           } else {
