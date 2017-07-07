@@ -14,7 +14,9 @@ angular.module('mean.system')
     const user = angular.element('#user').val();
     game.sendTyping(user);
   };
-  $scope.sendChat = function () {
+  $scope.sendChat = function (yo) {
+    console.log('the msg', yo);
+    console.log('see the message sent', $scope.msg);
     game.sendChat($scope.msg);
     $scope.msg = '';
   };
@@ -87,36 +89,40 @@ angular.module('mean.system')
   };
 
   $scope.invitePlayers = function () {
-    const numberOfSelectedPlayers = $scope.selectedUsers.length;
-    if (numberOfSelectedPlayers > 0 && numberOfSelectedPlayers < 12) {
-      const mailSentBy = $scope.game.players[0].username;
-      // iterate through object and send emails to selected users
-      $scope.selectedUsers.map((user) => {
-        const userDetails = { name: user.name,
-          email: user.email,
-          urlLink: document.URL,
-          from: mailSentBy,
-        };
-        $http({
-          method: 'POST',
-          url: '/api/user/invite/:userDetails',
-          data: userDetails
-        }).then((response) => {
-          if (response.data.sent) {
-            $scope.invitedUsers.push(user.email);
-          }
-        });
-      });
-      // Close invitation modal and show mail sent information
-      const myModal = $('#invite-players');
-      myModal.modal('hide');
+    const mailSentBy = $scope.game.players[0].username;
 
-      // show successful modal when invitations sent out successfully
-      const inviteSuccessful = $('#playerRequirement');
-      inviteSuccessful.find('.modal-body')
-      .text("Invites sent to users' email");
-      inviteSuccessful.modal('show');
-    }
+     // Close invitation modal and show mail sent information
+    const myModal = $('#invite-players');
+    myModal.modal('hide');
+
+      // iterate through object and send emails to selected users
+    $scope.selectedUsers.map((user) => {
+      const userDetails = { name: user.name,
+        email: user.email,
+        urlLink: document.URL,
+        from: mailSentBy,
+      };
+      $http({
+        method: 'POST',
+        url: '/api/user/invite/:userDetails',
+        data: userDetails
+      }).then((response) => {
+        if (response.data.sent) {
+          $scope.invitedUsers.push(user.email);
+          // show successful modal when invitations sent out successfully
+          const inviteSuccessful = $('#playerRequirement');
+          inviteSuccessful.find('.modal-body')
+            .text("Invites sent to users' email");
+          inviteSuccessful.modal('show');
+        }
+      }).catch((error) => {
+        const inviteSuccessful = $('#playerRequirement');
+        inviteSuccessful.find('.modal-body')
+          .text(`Invites could not be sent at the moment, 
+          check your internet connection and try again \n Error: ${error}`);
+        inviteSuccessful.modal('show');
+      });
+    });
   };
 
   $scope.searchUsers = function () {

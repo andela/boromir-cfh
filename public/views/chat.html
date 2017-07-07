@@ -24,12 +24,16 @@
    </ul>
     <form action="">
       <input type="hidden" id="user" value="{{game.players[game.playerIndex].username}}" />
-     <input style="    width: 100%;" ng-keypress="onKeyPress()" ng-model="msg" id="m" autocomplete="off" /><button ng-click="sendChat()"></button>
+     <input id="chatMsg" style="width: 100%;" ng-keypress="onKeyPress()" ng-model="msg" id="m" autocomplete="off" /><button id="chatBtn" ng-click="sendChat()"></button>
     </form>
     </div>
 </div>
    
-
+<!--<div class="row">
+  <div class="span6">
+    <textarea id="emojionearea1"></textarea>
+  </div>
+</div>-->
 
  <div id="chat" class="animated-chat tada" onclick="loadChatbox()">Chat</div>
 
@@ -57,18 +61,20 @@
     e.style.margin = "0 0 -460px 0";
   }
 
-//   $(document).ready(function() {
-// 	$("#emojionearea1").emojioneArea({
-  	
-// 		pickerPosition: "right",
-//     	tonesStyle: "bullet",
-// 		events: {
-//          	keyup: function (editor, event) {
-//            		console.log(editor.html());
-//            		console.log(this.getText());
-//         	}
-//     	}
-// 	});
-// });
+  // $(document).ready(function() {
+  //   $("#chatMsg").emojioneArea({
+  //     pickerPosition: "top",
+  //     events: {
+  //       keyup: function (editor, event) {
+  //           console.log(event.keyCode);
+  //           console.log(this.getText());
+  //           if (event.keyCode == 13) {
+  //             // $('#chatBtn').click(sendChat('you mad'))
+  //             $('#chatBtn').click();
+  //           }
+  //       }
+  //   	}
+  //   });
+  // });
 
 </script>
