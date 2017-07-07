@@ -27,7 +27,7 @@ function Game(gameID, io) {
   this.winnerAutopicked = false;
   this.czar = -1; // Index in this.players
   this.playerMinLimit = 3;
-  this.playerMaxLimit = 6;
+  this.playerMaxLimit = 12;
   this.pointLimit = 5;
   this.state = "awaiting players";
   this.round = 0;
@@ -82,6 +82,24 @@ Game.prototype.payload = function() {
 
 Game.prototype.sendNotification = function(msg) {
   this.io.sockets.in(this.gameID).emit('notification', {notification: msg});
+};
+
+Game.prototype.sendChat = function(msg, thisPlayer) {
+  const playerIndex = this._findPlayerIndexBySocket(thisPlayer);
+  if (playerIndex !== -1) {
+    const playerName = this.players[playerIndex].username;
+    this.io.sockets.in(this.gameID).emit('chat message', { chat: msg, name: playerName });
+  }
+};
+
+
+Game.prototype.sendTyping = function(user, thisPlayer) {
+  const playerIndex = this._findPlayerIndexBySocket(thisPlayer);
+  if (playerIndex !== -1) {
+    const playerName = this.players[playerIndex].username;
+    const message = playerName + "  is typing";
+    this.io.sockets.in(this.gameID).emit('someone is typing', { user, typing: message });
+  }
 };
 
 // Currently called on each joinGame event from socket.js

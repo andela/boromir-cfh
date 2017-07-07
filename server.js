@@ -1,12 +1,12 @@
 /**
  * Module dependencies.
  */
-require ('dotenv').config();
+require('dotenv').config();
 var express = require('express'),
-    fs = require('fs'),
-    passport = require('passport'),
-    logger = require('mean-logger'),
-    io = require('socket.io');
+  fs = require('fs'),
+  passport = require('passport'),
+  logger = require('mean-logger'),
+  io = require('socket.io');
 
 /**
  * Main application entry file.
@@ -15,28 +15,30 @@ var express = require('express'),
 
 //Load configurations
 //if test env, load example file
-var env = process.env.NODE_ENV = process.env.NODE_ENV || 'development',
-    config = require('./config/config'),
-    auth = require('./config/middlewares/authorization'),
-    mongoose = require('mongoose');
+const env = process.env.NODE_ENV = process.env.NODE_ENV || 'development',
+  config = require('./config/config'),
+  auth = require('./config/middlewares/authorization'),
+  mongoose = require('mongoose');
+
+mongoose.Promise = global.Promise;
 
 //Bootstrap db connection
 var db = mongoose.connect(config.db);
 
 //Bootstrap models
 var models_path = __dirname + '/app/models';
-var walk = function(path) {
-    fs.readdirSync(path).forEach(function(file) {
-        var newPath = path + '/' + file;
-        var stat = fs.statSync(newPath);
-        if (stat.isFile()) {
-            if (/(.*)\.(js|coffee)/.test(file)) {
-                require(newPath);
-            }
-        } else if (stat.isDirectory()) {
-            walk(newPath);
-        }
-    });
+var walk = function (path) {
+  fs.readdirSync(path).forEach(function (file) {
+    var newPath = path + '/' + file;
+    var stat = fs.statSync(newPath);
+    if (stat.isFile()) {
+      if (/(.*)\.(js|coffee)/.test(file)) {
+        require(newPath);
+      }
+    } else if (stat.isDirectory()) {
+      walk(newPath);
+    }
+  });
 };
 walk(models_path);
 
@@ -45,8 +47,8 @@ require('./config/passport')(passport);
 
 var app = express();
 
-app.use(function(req, res, next){
-    next();
+app.use(function (req, res, next) {
+  next();
 });
 
 //express settings

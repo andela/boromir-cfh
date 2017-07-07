@@ -1,10 +1,12 @@
  .clear {
    clear:both;
  }
-
- .uppercase {
-   text-transform: uppercase;
- }
+li.disabled {
+  /* Make the disabled links grayish*/
+  color: gray;
+  /* And disable the pointer events */
+  pointer-events: none;
+}
 
  #landing-charity {
    width: 300px !important;
@@ -14,7 +16,6 @@
    float: left !important;
    top: -65px;
 }
-
 #tweet-container-index{
    margin-top: 10px;
    display: inline-block;
