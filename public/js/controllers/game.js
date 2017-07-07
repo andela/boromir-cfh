@@ -15,8 +15,6 @@ angular.module('mean.system')
     game.sendTyping(user);
   };
   $scope.sendChat = function (yo) {
-    console.log('the msg', yo);
-    console.log('see the message sent', $scope.msg);
     game.sendChat($scope.msg);
     $scope.msg = '';
   };
@@ -38,11 +36,6 @@ angular.module('mean.system')
         $scope.pickedCards.pop();
       }
     }
-  };
-
-  $scope.signOut = function () {
-    alert('please don\'t go');
-    console.log('please dont go');
   };
 
   $scope.startGame = function () {
