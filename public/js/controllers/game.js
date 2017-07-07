@@ -122,8 +122,10 @@ angular.module('mean.system')
   $scope.searchUsers = function () {
     const regexSearchTerm = RegExp($scope.searchTerm, 'gi');
     $scope.filteredUsers = $scope.allUsers.filter((user) => {
-      if (user.name.search(regexSearchTerm) !== -1) {
-        return user;
+      if (user.name) {
+        if (user.name.search(regexSearchTerm) !== -1) {
+          return user;
+        }
       }
     });
   };
