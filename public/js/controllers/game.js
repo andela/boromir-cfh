@@ -10,32 +10,37 @@ angular.module('mean.system')
   let makeAWishFacts = MakeAWishFactsService.getMakeAWishFacts();
   $scope.makeAWishFact = makeAWishFacts.pop();
 
-  $scope.onKeyPress = function(){
+  $scope.onKeyPress = function () {
     const user = angular.element('#user').val();
     game.sendTyping(user);
   };
-  $scope.sendChat = function(){
+  $scope.sendChat = function () {
     game.sendChat($scope.msg);
-    $scope.msg = "";
+    $scope.msg = '';
   };
 
-  $scope.pickCard = function(card) {
+  $scope.pickCard = function (card) {
     if (!$scope.hasPickedCards) {
       if ($scope.pickedCards.indexOf(card.id) < 0) {
         $scope.pickedCards.push(card.id);
         if (game.curQuestion.numAnswers === 1) {
           $scope.sendPickedCards();
           $scope.hasPickedCards = true;
-        } else if (game.curQuestion.numAnswers === 2 && 
-        $scope.pickedCards.length === 2) {
-          // delay and send
-        $scope.hasPickedCards = true;
-        $timeout($scope.sendPickedCards, 300);
+        } else if (game.curQuestion.numAnswers === 2 &&
+          $scope.pickedCards.length === 2) {
+            // delay and send
+          $scope.hasPickedCards = true;
+          $timeout($scope.sendPickedCards, 300);
+        }
+      } else {
+        $scope.pickedCards.pop();
       }
-    } else {
-      $scope.pickedCards.pop();
     }
-  }
+  };
+
+  $scope.signOut = function () {
+    alert('please don\'t go');
+    console.log('please dont go');
   };
 
   $scope.startGame = function () {
@@ -51,6 +56,7 @@ angular.module('mean.system')
   };
 
   $scope.getUsers = function () {
+    localStorage.setItem('email', game.players[game.playerIndex].email);
     // Display all users from mongoDB into modal
     $scope.searchTerm = '';
     $scope.sentSuccessfully = 0;
@@ -64,7 +70,7 @@ angular.module('mean.system')
     }).then((response) => {
       response.data.map((eachUser) => {
         // Excludes current user from the list of users that can recieve invites
-        if (eachUser.email !== localStorage.email) {
+        if (eachUser.email !== localStorage.email && eachUser.name) {
           $scope.allUsers.push(eachUser);
         }
       });

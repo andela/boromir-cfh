@@ -5,6 +5,13 @@
     right: 0 !important;
     top: 0px !important;
 }
+.modalBtn{
+  background-color: #1F959C;
+  color: white
+}
+.searchErrorMsg{
+  margin-top: 2em;
+}
 #chat,#chat:after,.chatbox{transition:all .4s ease-in-out}
 #chat,#close-chat,.minim-button,.maxi-button,.chat-text{font-weight:700;cursor:pointer;font-family:Arial,sans-serif;text-align:center;height:20px;line-height:20px}
 #chat:after,#chat:before{position:absolute;border-style:solid;content:""}

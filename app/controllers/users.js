@@ -10,6 +10,7 @@ const avatars = require('./avatars').all();
 /**
  * Auth callback
  */
+
 exports.authCallback = function (req, res, next) {
   res.redirect('/chooseavatars');
 };

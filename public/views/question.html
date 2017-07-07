@@ -80,14 +80,14 @@
                   <div ng-repeat="user in filteredUsers track by $index" class='usersInDB'>
                     <li ng-class="{'disabled': invitedUsers.includes(user.email)}"><td><input type="checkbox" ng-model="user.selected" ng-click="countPlayers()"></td> <td>{{user.name}}</td></li>
                   </div>
-                  <p ng-show="filteredUsers < 1">Cannot find players with the specified search term in the database</p>
+                  <p ng-show="filteredUsers < 1" class='searchErrorMsg'>Cannot find players with the specified search term in the database</p>
                 </div>
                 </div> 
-                <button ng-click="invitePlayers()">
+                <button ng-click="invitePlayers()" class="btn btn-sm modalBtn">
                   Invite selected players
                 </button>
-                <button data-dismiss="modal">Cancel</button>
-              <div class="modal-footer">Card for Humanity</div> 
+                <button data-dismiss="modal" class="btn btn-sm modalBtn">Cancel</button>
+              <div class="modal-footer">Cards for Humanity</div> 
           </div> 
       </div> 
   </div> 
