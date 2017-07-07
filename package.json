@@ -15,7 +15,7 @@
   "scripts": {
     "start": "node node_modules/grunt-cli/bin/grunt",
     "test": "node node_modules/grunt-cli/bin/grunt test",
-    "postinstall": "node node_modules/grunt-cli/bin/grunt install",
+    "postinstall": "node node_modules/grunt-cli/bin/grunt install && bower install",
     "testk": "karma start karma.conf.js",
     "cover": "istanbul cover _mocha",
     "coveralls": "npm run cover -- test/**/ -R spec && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js"
