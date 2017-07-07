@@ -7,15 +7,20 @@
     <div id="startGame" ng-show="game.state === 'awaiting players'">
       <div id="finding-players">Finding Players</div>
       <div id="player-count-container">
-        <div id="player-count">{{game.players.length}} / 6 </div>
+        <div id="player-count">{{game.players.length}} / 12 </div>
         <div id="the-word-players"> Players </div>
       </div>
       <div id="loading-container">
         <div id="loading-gif"><img ng-src="../img/loader.gif"/></div>
       </div>
-      <div id="start-game-container" ng-click="startGame()" ng-show="(game.playerIndex === 0 || game.joinOverride) && game.players.length >= game.playerMinLimit">
+      <div id="start-game-container" ng-click="startGame()" ng-show="(game.playerIndex === 0 || game.joinOverride)">
         <div id='start-game-button'>
           Start Game</br>with {{game.players.length}} players
+        </div>
+      </div>
+      <div id="start-game-container">
+        <div id='start-game-button' ng-click='getUsers()'>
+          Invite Players
         </div>
       </div>
     </div>
@@ -34,5 +39,58 @@
       </div>
     </div>
   </div>
+
+  <!-- POP up Modal -->
+  <div id="playerRequirement" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;
+          </button>
+          <h4 class="modal-title">Cards for humanity</h4>
+        </div>
+        <div class="modal-body">
+          <p></p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">
+            Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Invite Players -->
+  <div class="modal" id="invite-players" tabindex="-1" role="document" aria-labelledby="myModalLabel"
+  aria-hidden="true" style="overflow-y:hidden;"> 
+      <div class="modal-dialog" style=" max-height:80%;  margin-top: 50px; margin-bottom:50px;"> 
+          <div class="modal-content"> 
+              <div class="modal-header"> 
+                <h3 class="modal-title">Invite Players</h3> 
+              </div> 
+              <div class="modal-body">
+                <div> 
+                  <p> Invitation Mails sent to {{invitedUsers.length}}  Users</p>
+                  <p>Number of users selected: {{selectedUsers.length}}</p>
+                  <span> Search for users <input placeholder='search for users...' type="text" ng-keyup="searchUsers()" ng-model="searchTerm"> </span>
+                </div>
+                <p class="playerlimitExceeded" ng-show="(invitedUsers.length + selectedUsers.length) > 11"> <span class="btn-warning">you cannot invite more than 11 players, uncheck some players to continue</span></p>
+                <div  style="margin-top: 1em; margin-bottom: 0.3em; overflow-y: scroll; overflow-y: auto; max-height:20em;">
+                <div><span style="font-weight:bold; margin-right:10em;">Username</span></div>
+                  <div ng-repeat="user in filteredUsers track by $index" class='usersInDB'>
+                    <li ng-class="{'disabled': invitedUsers.includes(user.email)}"><td><input type="checkbox" ng-model="user.selected" ng-click="countPlayers()"></td> <td>{{user.name}}</td></li>
+                  </div>
+                  <p ng-show="filteredUsers < 1">Cannot find players with the specified search term in the database</p>
+                </div>
+                </div> 
+                <button ng-click="invitePlayers()" ng-disabled="(invitedUsers.length + selectedUsers.length) > 11">
+                  Invite selected players
+                </button>
+                <button data-dismiss="modal">Cancel</button>
+              <div class="modal-footer">Card for Humanity</div> 
+          </div> 
+      </div> 
+  </div> 
 </div>
 

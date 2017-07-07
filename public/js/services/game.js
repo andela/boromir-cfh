@@ -1,9 +1,12 @@
 angular.module('mean.system')
-  .factory('game', ['socket', '$timeout', function (socket, $timeout) {
+  .factory('game', ['socket', '$timeout', '$location', function (socket, $timeout, $location) {
 
   var game = {
     id: null, // This player's socket ID, so we know who this player is
     gameID: null,
+    messages: [],
+    isTyping: '',
+    typingPlayer: '',
     players: [],
     playerIndex: 0,
     winningCard: -1,
@@ -12,7 +15,7 @@ angular.module('mean.system')
     table: [],
     czar: null,
     playerMinLimit: 3,
-    playerMaxLimit: 6,
+    playerMaxLimit: 12,
     pointLimit: null,
     state: null,
     round: 0,
@@ -27,6 +30,21 @@ angular.module('mean.system')
   var timeout = false;
   var self = this;
   var joinOverrideTimeout = 0;
+
+  socket.on('player_limit_exceeded', function(data) {
+    const myModal = $('#playerRequirement');
+    myModal.find('.modal-body')
+    .text('Sorry! You are late, the room is filled up! \t Only 12 players' + 
+    ' allowed per room');
+    myModal.modal('show');
+    // console.log($location);
+    // $location.$$path = '/';#!/
+    // console.log('my modal', myModal);
+    // console.log('my modal context', myModal.context);
+    // if (!myModal.hasClass('in')) {
+    // window.location.hash = '#!';
+    // }
+  });
 
   var addToNotificationQueue = function(msg) {
     notificationQueue.push(msg);
@@ -202,6 +220,24 @@ angular.module('mean.system')
   game.pickWinning = function(card) {
     socket.emit('pickWinning',{card: card.id});
   };
+
+    socket.on('chat message', function (data) {
+      game.messages.push(data);
+      game.isTyping = "";
+    });
+
+    socket.on('someone is typing', function (data) {
+      game.isTyping = data.typing;
+      game.typingPlayer = data.user;
+    });
+
+    game.sendChat = function (msg) {
+      socket.emit('chat message', msg);
+    };
+
+    game.sendTyping = function (user) {
+      socket.emit('someone is typing', user);
+    };
 
   decrementTime();
 
