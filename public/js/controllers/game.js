@@ -10,32 +10,32 @@ angular.module('mean.system')
   let makeAWishFacts = MakeAWishFactsService.getMakeAWishFacts();
   $scope.makeAWishFact = makeAWishFacts.pop();
 
-  $scope.onKeyPress = function(){
+  $scope.onKeyPress = function () {
     const user = angular.element('#user').val();
     game.sendTyping(user);
   };
-  $scope.sendChat = function(){
+  $scope.sendChat = function (yo) {
     game.sendChat($scope.msg);
-    $scope.msg = "";
+    $scope.msg = '';
   };
 
-  $scope.pickCard = function(card) {
+  $scope.pickCard = function (card) {
     if (!$scope.hasPickedCards) {
       if ($scope.pickedCards.indexOf(card.id) < 0) {
         $scope.pickedCards.push(card.id);
         if (game.curQuestion.numAnswers === 1) {
           $scope.sendPickedCards();
           $scope.hasPickedCards = true;
-        } else if (game.curQuestion.numAnswers === 2 && 
-        $scope.pickedCards.length === 2) {
-          // delay and send
-        $scope.hasPickedCards = true;
-        $timeout($scope.sendPickedCards, 300);
+        } else if (game.curQuestion.numAnswers === 2 &&
+          $scope.pickedCards.length === 2) {
+            // delay and send
+          $scope.hasPickedCards = true;
+          $timeout($scope.sendPickedCards, 300);
+        }
+      } else {
+        $scope.pickedCards.pop();
       }
-    } else {
-      $scope.pickedCards.pop();
     }
-  }
   };
 
   $scope.startGame = function () {
@@ -51,30 +51,26 @@ angular.module('mean.system')
   };
 
   $scope.getUsers = function () {
+    localStorage.setItem('email', game.players[game.playerIndex].email);
     // Display all users from mongoDB into modal
+    $scope.searchTerm = '';
     $scope.sentSuccessfully = 0;
     $scope.selectedUsers = [];
-    if ($scope.invitedUsers.length >= 11) {
-      const myModal = $('#playerRequirement');
-      myModal.find('.modal-body')
-      .text(`Sorry! you have sent the maximum number of invites possible, \t
-      You cannot invite more than 11 players`);
-      myModal.modal('show');
-    } else {
-      const myModal = $('#invite-players');
-      myModal.modal('show');
-      $scope.allUsers = [];
-      $http({
-        method: 'GET',
-        url: 'api/users/search'
-      }).then((response) => {
-        response.data.map((eachUser) => {
-          // adds users to an object containing users an invite has been sent to
+    const myModal = $('#invite-players');
+    myModal.modal('show');
+    $scope.allUsers = [];
+    $http({
+      method: 'GET',
+      url: 'api/users/search'
+    }).then((response) => {
+      response.data.map((eachUser) => {
+        // Excludes current user from the list of users that can recieve invites
+        if (eachUser.email !== localStorage.email && eachUser.name) {
           $scope.allUsers.push(eachUser);
-        });
+        }
       });
-      $scope.filteredUsers = $scope.allUsers;
-    }
+    });
+    $scope.filteredUsers = $scope.allUsers;
   };
 
   $scope.countPlayers = function () {
@@ -86,43 +82,49 @@ angular.module('mean.system')
   };
 
   $scope.invitePlayers = function () {
-    const numberOfSelectedPlayers = $scope.selectedUsers.length;
-    if (numberOfSelectedPlayers > 0 && numberOfSelectedPlayers < 12) {
-      const mailSentBy = $scope.game.players[0].username;
-      // iterate through object and send emails to selected users
-      $scope.selectedUsers.map((user) => {
-        const userDetails = { name: user.name,
-          email: user.email,
-          urlLink: document.URL,
-          from: mailSentBy,
-        };
-        $http({
-          method: 'POST',
-          url: '/api/user/invite/:userDetails',
-          data: userDetails
-        }).then((response) => {
-          if (response.data.sent) {
-            $scope.invitedUsers.push(user.email);
-          }
-        });
-      });
-      // Close invitation modal and show mail sent information
-      const myModal = $('#invite-players');
-      myModal.modal('hide');
+    const mailSentBy = $scope.game.players[0].username;
 
-      // show successful modal when invitations sent out successfully
-      const inviteSuccessful = $('#playerRequirement');
-      inviteSuccessful.find('.modal-body')
-      .text("Invites sent to users' email");
-      inviteSuccessful.modal('show');
-    }
+     // Close invitation modal and show mail sent information
+    const myModal = $('#invite-players');
+    myModal.modal('hide');
+
+      // iterate through object and send emails to selected users
+    $scope.selectedUsers.map((user) => {
+      const userDetails = { name: user.name,
+        email: user.email,
+        urlLink: document.URL,
+        from: mailSentBy,
+      };
+      $http({
+        method: 'POST',
+        url: '/api/user/invite/:userDetails',
+        data: userDetails
+      }).then((response) => {
+        if (response.data.sent) {
+          $scope.invitedUsers.push(user.email);
+          // show successful modal when invitations sent out successfully
+          const inviteSuccessful = $('#playerRequirement');
+          inviteSuccessful.find('.modal-body')
+            .text("Invites sent to users' email");
+          inviteSuccessful.modal('show');
+        }
+      }).catch((error) => {
+        const inviteSuccessful = $('#playerRequirement');
+        inviteSuccessful.find('.modal-body')
+          .text(`Invites could not be sent at the moment, 
+          check your internet connection and try again \n Error: ${error}`);
+        inviteSuccessful.modal('show');
+      });
+    });
   };
 
   $scope.searchUsers = function () {
     const regexSearchTerm = RegExp($scope.searchTerm, 'gi');
     $scope.filteredUsers = $scope.allUsers.filter((user) => {
-      if (user.name.search(regexSearchTerm) !== -1) {
-        return user;
+      if (user.name) {
+        if (user.name.search(regexSearchTerm) !== -1) {
+          return user;
+        }
       }
     });
   };

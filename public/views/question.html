@@ -54,7 +54,7 @@
           <p></p>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">
+          <button type="button" class="btn-default modalBtn" data-dismiss="modal">
             Close</button>
         </div>
       </div>
@@ -64,31 +64,31 @@
   <!-- Invite Players -->
   <div class="modal" id="invite-players" tabindex="-1" role="document" aria-labelledby="myModalLabel"
   aria-hidden="true" style="overflow-y:hidden;"> 
-      <div class="modal-dialog" style=" max-height:80%;  margin-top: 50px; margin-bottom:50px;"> 
+      <div class="modal-dialog panel"> 
           <div class="modal-content"> 
-              <div class="modal-header"> 
+              <div class="modal-header popUpHeader"> 
                 <h3 class="modal-title">Invite Players</h3> 
               </div> 
               <div class="modal-body">
                 <div> 
-                  <p> Invitation Mails sent to {{invitedUsers.length}}  Users</p>
-                  <p>Number of users selected: {{selectedUsers.length}}</p>
-                  <span> Search for users <input placeholder='search for users...' type="text" ng-keyup="searchUsers()" ng-model="searchTerm"> </span>
+                  <p class='msgCenter'>Number of users selected: {{selectedUsers.length}}</p>
+                  <span class="headerText"> Search for users <input placeholder='search for users...' type="text" ng-keyup="searchUsers()" ng-model="searchTerm"> </span>
                 </div>
-                <p class="playerlimitExceeded" ng-show="(invitedUsers.length + selectedUsers.length) > 11"> <span class="btn-warning">you cannot invite more than 11 players, uncheck some players to continue</span></p>
-                <div  style="margin-top: 1em; margin-bottom: 0.3em; overflow-y: scroll; overflow-y: auto; max-height:20em;">
-                <div><span style="font-weight:bold; margin-right:10em;">Username</span></div>
+                <div class="headerText usernameHeader"><span>Username</span></div>
+                <div  class="modalHeight">
                   <div ng-repeat="user in filteredUsers track by $index" class='usersInDB'>
-                    <li ng-class="{'disabled': invitedUsers.includes(user.email)}"><td><input type="checkbox" ng-model="user.selected" ng-click="countPlayers()"></td> <td>{{user.name}}</td></li>
+                    <li class="eachUser" ng-class="{'disabled': invitedUsers.includes(user.email)}"><td><input type="checkbox" ng-model="user.selected" ng-click="countPlayers()"></td> <td>{{user.name}}</td></li>
                   </div>
-                  <p ng-show="filteredUsers < 1">Cannot find players with the specified search term in the database</p>
+                  <p ng-show="filteredUsers < 1" class='searchErrorMsg'>Cannot find players with the specified search term in the database</p>
                 </div>
                 </div> 
-                <button ng-click="invitePlayers()" ng-disabled="(invitedUsers.length + selectedUsers.length) > 11">
-                  Invite selected players
-                </button>
-                <button data-dismiss="modal">Cancel</button>
-              <div class="modal-footer">Card for Humanity</div> 
+                <div class='allModalBtn'>
+                  <button ng-class="{'disabledElement': selectedUsers < 1}" class="modalBtn" ng-click="invitePlayers()" >
+                    Invite selected players
+                  </button>
+                  <button data-dismiss="modal" class="modalBtn">Cancel</button>
+                </div>
+              <div class="modal-footer">Cards for Humanity</div> 
           </div> 
       </div> 
   </div> 

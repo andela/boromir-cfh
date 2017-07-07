@@ -58,6 +58,7 @@ Game.prototype.payload = function() {
       hand: player.hand,
       points: player.points,
       username: player.username,
+      email: player.email,
       avatar: player.avatar,
       premium: player.premium,
       socketID: player.socket.id,
