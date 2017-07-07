@@ -2,6 +2,7 @@
 *{
 	padding: 0px;
 	margin: 0px;
+  font-family: 'Averia Gruesa Libre', cursive;
 }
 
 body {
@@ -334,6 +335,17 @@ header .intro-text .intro-heading .white-card{
 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4), 0 6px 20px 0 rgba(0, 0, 0, 0.4);
 }
 
+.black-card h3{
+  font-family: 'Averia Gruesa Libre', cursive !important;
+}
+.white-card h3{
+ font-family: 'Averia Gruesa Libre', cursive, Arial !important;
+}
+
+#donations h4{
+ font-family: 'Averia Gruesa Libre', cursive;
+}
+
 header .intro-text .intro-heading .black-card{
   font-family: "Averia Gruesa Libre", cursive;
  	height: 350px;
@@ -402,15 +414,21 @@ header .intro-text .intro-heading .info-text{
     padding-bottom: 200px;
   }
   header .intro-text .intro-lead-in {
-    font-family: "Droid Serif", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-family: "Averia Gruesa Libre", cursive;
     font-style: italic;
     font-size: 40px;
     line-height: 40px;
     margin-bottom: 25px;
   }
   header .intro-text .intro-heading {
-    font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-family: "Averia Gruesa Libre", cursive;
     margin-bottom: 50px;
+  }
+}
+
+@media (max-width: 945px){
+  header .intro-text .intro-heading{
+    display: none;
   }
 }
 
