@@ -1,37 +1,34 @@
- <style type="text/css">
-    @import url("../css/style.css");
-    @import url("../css/common.css");
-    @import url("../css/animate.css");
-  </style>
+ 
 <div id="main-bod" ng-controller="IndexController">
   <!-- Fixed Logo & Menu Bar Start -->
-  <div id="top-part">
-    <div class="wpb-top-bar">
-      <div class="mod-contain" id="navver">
-        <div class="row">
-          <!-- Logo -->
-          <div class="wpb-logo-container">
-            <div id="landing-logo"> 
-              <span id="first-word">Cards</span>
-              <span id="second-word"> for</span> 
-              <span id="third-word">Humanity</span> 
-            </div> 
-            <div class="col-md-9 wpb-menu-container">
-              <ul class="wpb-main-menu">
-                <li><a href="/">Home</a></li>
-              </ul>
-            </div>
-          </div>      
+  <nav id="top-part" class="navbar navbar-default navbar-auth">
+    <div class="container">
+        <div class="navbar-header page-scroll">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand page-scroll" href="/">Cards For Humanity</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li clasxs="hidden">
+              <a href="#page-top"></a>
+            </li>
+            <li><a onClick="scroll(0,0)" href="/" class="page-scroll">HOME</a></li>
+          </ul>
         </div>
       </div>
-    </div>
-  </div>
+   </nav>
 <!-- Fixed Logo & Menu Bar End -->
 
 <!-- Landing Start -->
-<div class="wpb-teaser parallax-background" id="homer">
+<div class="container wpb-teaser parallax-background" id="homer">
   <div class="background-opacity"></div> 
-  <div class="modified-container">
+  <div class="col-md-8 col-md-offset-2">
+    <div class="modified-container">
     <div class="row" id="main-text"> 
     <!-- Teaser Text Start -->
     <div id="landing-logo">
@@ -51,7 +48,7 @@
               </ul>
             </div>
             <div class="form-actions">
-              <button id="sign-up-btn" type='submit'>Let's Go!</button>
+              <button id="sign-up-btn" class="btn btn-default" type='submit'>Let's Go!</button>
             </div>
           </form>
         </div>
@@ -59,6 +56,8 @@
     </div>
     </div>
     </div>
+  </div>
+
   </div>
 </div>
 
