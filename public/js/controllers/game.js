@@ -10,14 +10,15 @@ angular.module('mean.system')
   let makeAWishFacts = MakeAWishFactsService.getMakeAWishFacts();
   $scope.makeAWishFact = makeAWishFacts.pop();
 
-  $scope.onKeyPress = function () {
-    const user = angular.element('#user').val();
-    game.sendTyping(user);
+
+  $scope.onKeyPress = function (message) {
+    game.sendTyping(message);
   };
-  $scope.sendChat = function (yo) {
-    game.sendChat($scope.msg);
+  $scope.sendChat = function (message) {
+    game.sendChat(message);
     $scope.msg = '';
   };
+
 
   $scope.pickCard = function (card) {
     if (!$scope.hasPickedCards) {
@@ -42,6 +43,8 @@ angular.module('mean.system')
     // when user tries to start game without meeting minimum requirement
     if (game.players.length < game.playerMinLimit) {
       const myModal = $('#playerRequirement');
+      myModal.find('.modal-title')
+    .text('Player requirement');
       myModal.find('.modal-body')
     .text('Sorry! You require a minimum of three(3) players to play this game');
       myModal.modal('show');
@@ -102,17 +105,19 @@ angular.module('mean.system')
       }).then((response) => {
         if (response.data.sent) {
           $scope.invitedUsers.push(user.email);
-          // show successful modal when invitations sent out successfully
+          // show modal when invitations sent out successfully
           const inviteSuccessful = $('#playerRequirement');
           inviteSuccessful.find('.modal-body')
             .text("Invites sent to users' email");
           inviteSuccessful.modal('show');
         }
-      }).catch((error) => {
+      }, (error) => {
+        // show modal when invitations is unsuccessfully(Failed)
         const inviteSuccessful = $('#playerRequirement');
         inviteSuccessful.find('.modal-body')
           .text(`Invites could not be sent at the moment, 
-          check your internet connection and try again \n Error: ${error}`);
+          check your internet connection and try again
+          Error code: ${error.status}`);
         inviteSuccessful.modal('show');
       });
     });

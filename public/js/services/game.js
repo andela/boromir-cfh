@@ -33,6 +33,8 @@ angular.module('mean.system')
 
   socket.on('player_limit_exceeded', function(data) {
     const myModal = $('#playerRequirement');
+    myModal.find('.modal-title')
+    .text('Player requirement');
     myModal.find('.modal-body')
     .text('Sorry! You are late, the room is filled up! \t Only 12 players' + 
     ' allowed per room');
