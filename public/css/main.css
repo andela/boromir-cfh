@@ -557,7 +557,6 @@ header .intro-text .intro-heading .info-text{
 	background: #373154;
 	height: 100%;
 	color: #ffffff;
-  padding: 25px 0px;
 }
 
 .row{
@@ -614,7 +613,7 @@ header .intro-text .intro-heading .info-text{
 }
 
 .panel-default{
-  margin-bottom: 60px;
+  margin-bottom: 25%;
 }
 
 .panel {
@@ -669,8 +668,56 @@ hr{
    margin-bottom: -13px;
 }
 
+/*choose avatar*/
+.wpb-teaser{
+  color: #ffffff;
+  text-align: center;
+} 
+
+.form-actions .btn-default{
+  margin-top: 50px;
+  margin-bottom: 25%;
+  border: none;
+  background: #FC9800;
+  color: white;
+  border: none;
+  width: 70%;
+  font-size: 20px;
+  padding: 15px;
+}
+
+.form-actions .btn-default:hover{
+  background: #c98c2a;
+}
+
+#landing-logo #slogan{
+  font-family: "Berkshire Swash", cursive !important;
+}
+
+#landing-logo #create{
+  font-size: 17px;
+}
+
+.start-game{
+  margin-top: 5px;
+}
+.start-game .btn-danger{
+  font-size: 16px;
+  margin-right: 15px;
+}
+
+#tweet-container{
+  background: #00ACED;
+  font-size: 16px !important;
+  color: #ffffff;
+}
+
+#tweet-container .fa-twitter{
+  color: #fff;
+}
 
   /* Modal*/
+
  .disabledElement {
   /* Make the disabled links grayish*/
   background: gray !important;
