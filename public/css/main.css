@@ -668,3 +668,74 @@ hr{
    font-family: arial;
    margin-bottom: -13px;
 }
+
+
+  /* Modal*/
+ .disabledElement {
+  /* Make the disabled links grayish*/
+  background: gray !important;
+  /* And disable the pointer events */
+  pointer-events: none;
+}
+.allModalBtn{
+  margin-left: 30%;
+}
+.modal-title{
+  text-align: center;
+  font-family: "Berkshire Swash", cursive !important;
+}
+.modal-body{
+  font-family: "Averia Gruesa Libre", cursive;
+}
+.eachUser{
+  padding: 0.2em;
+}
+
+.modalBtn{
+  background: #FC9800;
+  color: white;
+  border: none;
+  font-size: 1em;
+  padding: 1em;
+  font-family: "Averia Gruesa Libre", cursive;
+  border-radius: 1em;
+
+}
+.modalBtn:hover{
+  background: #c98c2a !important;
+}
+.modal-dialog{
+  max-height:80%;
+  margin-top: 50px;
+  margin-bottom:50px;
+  max-width: 36em;
+}
+.usernameHeader{
+  position: fixed;
+  margin-top: 0.5em; 
+}
+.modalHeight{
+  margin-top: 3em;
+  margin-bottom: 0.3em;
+  overflow-y: scroll;
+  overflow-y: auto;
+  max-height:20em;
+}
+.headerText{
+  font-size: 1.4em;
+  margin-bottom:0.2em;
+  font-weight:bold;
+}
+.msgCenter{
+  text-align: center;
+}
+.modal-header {
+  color: whitesmoke;
+  background-color: rgba(55, 49, 84, 1);
+  border-top: rgba(55, 49, 84, 1);
+  border-top-color: rgb(55, 49, 84);
+  border-color: rgba(55, 49, 84, 1);
+}
+.playModal{
+  margin-left: 8%;
+}
