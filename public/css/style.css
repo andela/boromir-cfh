@@ -85,6 +85,13 @@ li.disabled {
    max-width: 25%;
 }
 
+.black-card h3{
+   font-family: 'Averia Gruesa Libre', cursive !important;
+}
+.white-card h3{
+   font-family: 'Averia Gruesa Libre', cursive, Arial !important;
+
+}
 
 @media(min-width: 400px) and (max-width: 950px) {
    .some-text {
@@ -1002,6 +1009,9 @@ li.disabled {
 
 #donations {
    margin-top: 160px;
+}
+#donations h4{
+   font-family: 'Averia Gruesa Libre', cursive;
 }
 
 /*MORE MEDIA QUERIESS WHOOOOOAAAA*/
