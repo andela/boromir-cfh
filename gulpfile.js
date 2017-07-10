@@ -21,6 +21,12 @@ gulp.task('angular', () => {
         .pipe(gulp.dest('public/lib/angular'));
 });
 
+// emojiarea module
+gulp.task('emojiarea', () => {
+  gulp.src('bower_components/emojionearea/dist/**/*')
+    .pipe(gulp.dest('public/lib/emojionearea'));
+});
+
 gulp.task('bootstrap', () => {
     gulp.src('bower_components/bootstrap/**/*')
         .pipe(gulp.dest('public/lib/bootstrap'));
@@ -86,5 +92,5 @@ gulp.task('mochaTest', () => {
 
 gulp.task('test', ['mochaTest']);
 gulp.task('install', ['bower']);
-gulp.task('production', ['bower', 'sass', 'angular', 'bootstrap', 'jquery', 'underscore', 'angularUtils', 'angular-bootstrap']);
-gulp.task('default', ['nodemon', 'watch', 'sass', 'angular', 'bootstrap', 'jquery', 'underscore', 'angularUtils', 'angular-bootstrap']);
+gulp.task('production', ['bower', 'sass', 'angular', 'bootstrap', 'jquery', 'underscore', 'angularUtils', 'angular-bootstrap', 'emojiarea']);
+gulp.task('default', ['nodemon', 'watch', 'sass', 'angular', 'bootstrap', 'jquery', 'underscore', 'angularUtils', 'angular-bootstrap', 'emojiarea']);

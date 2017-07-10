@@ -10,6 +10,7 @@ const avatars = require('./avatars').all();
 /**
  * Auth callback
  */
+
 exports.authCallback = function (req, res, next) {
   res.redirect('/chooseavatars');
 };
@@ -62,6 +63,9 @@ exports.checkAvatar = function (req, res) {
       _id: req.user._id
     })
     .exec((err, user) => {
+      // save the user's email
+      console.log(user.email);
+      localStorage.setItem('email', user.email);
       if (user.avatar !== undefined) {
         const token = user.generateJwtToken();
         localStorage.setItem('JSONWT', token);
@@ -121,6 +125,8 @@ exports.avatars = function (req, res) {
       _id: req.user._id
     })
     .exec((err, user) => {
+      // save the user's email
+      localStorage.setItem('email', user.email);
       const token = user.generateJwtToken();
       localStorage.setItem('JSONWT', token);
       user.avatar = avatars[req.body.avatar];
