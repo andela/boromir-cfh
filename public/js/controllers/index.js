@@ -2,11 +2,37 @@ angular.module('mean.system')
   .controller('IndexController', ['$scope', '$http', 'Global', '$location', '$window', 'socket', 'game', 'AvatarService', function ($scope, $http, Global, $location, $window, socket, game, AvatarService) {
     $scope.global = Global;
 
+    $scope.showRegion = function () {
+      const myModal = $('#select-region');
+      myModal.modal('show');
+    };
+
     $scope.playAsGuest = function () {
       game.joinGame();
       $location.path('/app');
     };
 
+    $scope.playWithStrangers = function () {
+      if ($scope.region === undefined){
+        alert('Please Select your Region');
+        return;
+      }
+      localStorage.setItem('player_region', $scope.region);
+      const myModal = $('#select-region');
+      myModal.modal('hide');
+      $window.location.href = '/play';
+    };
+
+    $scope.playWithFriends = function () {
+      if ($scope.region === undefined) {
+        alert('Please Select your Region');
+        return;
+      }
+      localStorage.setItem('player_region', $scope.region);
+      const myModal = $('#select-region');
+      myModal.modal('hide');
+      $window.location.href = '/play?custom';
+    };
     $scope.showError = function () {
       if ($location.search().error) {
         return $location.search().error;

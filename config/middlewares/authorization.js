@@ -47,9 +47,7 @@ exports.verifyToken = (req, res, next) => {
     // verifies secret and checks
     jwt.verify(token, secret, (error, decoded) => {
       if (error) {
-        return res.json({
-          message: 'Failed to authenticate token.'
-        });
+        return res.redirect('/signout');
       }
       // request user detail for other routes
       req.decoded = decoded;
@@ -57,8 +55,6 @@ exports.verifyToken = (req, res, next) => {
     });
   } else {
     // return an error if no token
-    return res.send({
-      message: 'No token returned.'
-    });
+    return res.redirect('/signout');
   }
 };
