@@ -7,6 +7,10 @@ li.disabled {
   /* And disable the pointer events */
   pointer-events: none;
 }
+#searchBar{
+  margin-top: 4em;
+  width: 9em;
+}
 
  #landing-charity {
    width: 300px !important;

@@ -15,6 +15,55 @@
   background: #c98c2a;
 }*/
 
+.modalBtn{
+  background: #FC9800;
+  color: white;
+  border: none;
+  font-size: 1em;
+  padding: 1em;
+  font-family: "Averia Gruesa Libre", cursive;
+  border-radius: 0.4em;
+
+}
+.modalBtn:hover{
+  background: #c98c2a !important;
+}
+.modal-dialog{
+  max-height:80%;
+  margin-top: 50px;
+  margin-bottom:50px;
+  max-width: 36em;
+}
+.usernameHeader{
+  position: fixed;
+  margin-top: 0.5em; 
+}
+.modalHeight{
+  margin-top: 3em;
+  margin-bottom: 0.3em;
+  overflow-y: scroll;
+  overflow-y: auto;
+  max-height:14em;
+}
+.headerText{
+  font-size: 1.4em;
+  margin-bottom:0.2em;
+  font-weight:bold;
+}
+.msgCenter{
+  text-align: center;
+}
+.modal-header {
+  color: whitesmoke;
+  background-color: rgba(55, 49, 84, 1);
+  border-top: rgba(55, 49, 84, 1);
+  border-top-color: rgb(55, 49, 84);
+  border-color: rgba(55, 49, 84, 1);
+}
+.searchErrorMsg{
+  margin-top: 2em;
+}
+>>>>>>> e79817b77fb5452291e7cbe01975c07fe14f67d2
 #chat,#chat:after,.chatbox{transition:all .4s ease-in-out}
 #chat,#close-chat,.minim-button,.maxi-button,.chat-text{font-weight:700;cursor:pointer;font-family:Arial,sans-serif;text-align:center;height:20px;line-height:20px}
 #chat:after,#chat:before{position:absolute;border-style:solid;content:""}

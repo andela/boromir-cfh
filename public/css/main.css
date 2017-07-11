@@ -744,7 +744,7 @@ hr{
   color: white;
   border: none;
   font-size: 1em;
-  padding: 1em;
+  padding: 0.4em;
   font-family: "Averia Gruesa Libre", cursive;
   border-radius: 1em;
 
@@ -767,7 +767,7 @@ hr{
   margin-bottom: 0.3em;
   overflow-y: scroll;
   overflow-y: auto;
-  max-height:20em;
+  max-height:10em;
 }
 .headerText{
   font-size: 1.4em;

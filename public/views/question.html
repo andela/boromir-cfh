@@ -58,7 +58,7 @@
   </div>
   
   <!-- Invite Players -->
-  <div class="modal" id="invite-players" tabindex="-1" role="document" aria-labelledby="myModalLabel"
+  <div class="modal fade" id="invite-players" tabindex="-1" role="document" aria-labelledby="myModalLabel"
   aria-hidden="true" style="overflow-y:hidden;"> 
       <div class="modal-dialog panel"> 
           <div class="modal-content"> 
@@ -68,7 +68,7 @@
               <div class="modal-body">
                 <div> 
                   <p class='msgCenter'>Number of users selected: {{selectedUsers.length}}</p>
-                  <span class="headerText"> Search for users <input placeholder='search for users...' type="text" ng-keyup="searchUsers()" ng-model="searchTerm"> </span>
+                  <span class="headerText"><input class="searchBar" placeholder='search for users...' type="text" ng-keyup="searchUsers()" ng-model="searchTerm"> </span>
                 </div>
                 <div class="headerText usernameHeader"><span>Username</span></div>
                 <div  class="modalHeight">
