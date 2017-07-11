@@ -4,13 +4,13 @@
 
     <div id="notifications" class="text-center" ng-if="game.notification" ng-animate="{enter:'animated fadeInLeft', leave:'animated fadeOut'}">{{game.notification}}</div>
 
-    <div id="startGame" ng-show="game.state === 'awaiting players'">
+    <div id="startGame" class="clearfix" ng-show="game.state === 'awaiting players'">
       <div id="finding-players">Finding Players</div>
       <div id="player-count-container">
         <p id="player-count">{{game.players.length}} / 12 players available</p>
       </div>
       <div id="loading-container">
-        <div id="loading-gif"><img ng-src="../img/flower.gif"/></div>
+        <div id="loading-gif"><img ng-src="../img/human.gif"/></div>
       </div>
       <div id="start-game-container" class="pull-left" ng-click="startGame()" ng-show="(game.playerIndex === 0 || game.joinOverride)">
         <div id='start-game-button' class="btn btn-success">

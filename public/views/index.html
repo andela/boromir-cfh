@@ -61,10 +61,9 @@ $(document).ready(function() {
               <a href="/play" class="btn btn-default">PLAY AS A GUEST</a>
             </div>
             </span>
-            <span ng-hide="showOptions">
+            <span ng-hide="showOptions" ng-controller="IndexController">
             <div class="button">
-              <a href="/play" class="btn btn-info">PLAY WITH STRANGERS</a>
-              <a href="/play?custom" class="btn btn-default">PLAY WITH FRIENDS</a>
+              <button ng-click="showRegion()" class="btn btn-info">PLAY GAME</button>
             </div>
             </span>
           </div>
@@ -224,4 +223,37 @@ $(document).ready(function() {
   </div>
 </div>
 <!-- Footer End -->
+
+  <!--  Select Region -->
+  <div class="modal" id="select-region" tabindex="-1" role="document" ng-controller="IndexController" aria-labelledby="myModalLabel"
+  aria-hidden="true" style="overflow-y:hidden;"> 
+      <div class="modal-dialog panel"> 
+          <div class="modal-content"> 
+              <div class="modal-header popUpHeader"> 
+                <h3 class="modal-title">Select Region</h3> 
+              </div> 
+              <div class="modal-body">
+                <div class="headerText usernameHeader"><span>Select Region</span></div>
+                <div  class="modalHeight">
+                 <select ng-model="region" class="form-control">
+                   <option value="NG">Nigeria</option>
+                   <option value="UK">United Kingdom</option>
+                 </select>
+                </div>
+                </div> 
+                <div class='allModalBtn playModal'>
+                  <button class="modalBtn" ng-click="playWithStrangers()" >
+                    PLAY WITH STRANGERS
+                  </button>
+                   <button class="modalBtn" ng-click="playWithFriends()" >
+                    PLAY WITH FRIENDS
+                  </button>
+                  <button data-dismiss="modal" class="modalBtn">Cancel</button>
+                </div>
+              <div class="modal-footer">Cards for Humanity</div> 
+          </div> 
+      </div> 
+  </div> 
 </div>
+
+
