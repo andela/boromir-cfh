@@ -1,9 +1,11 @@
 <div class="container">
-  <div class="chatbox" id="chatbox">
-    <div>
-      <div id="close-chat" onclick="closeChatbox()">&times;</div>
+  <div class="row">
+    <div class="chatbox col-md-3 pull-right" id="chatbox">
+    <div class="chat-header clearfix">
+      <p class="title">Chat Box</p>
+      <!-- <div id="close-chat" onclick="closeChatbox()">&times;</div>
       <div id="minim-chat" onclick="minimChatbox()"><span class="minim-button">&minus;</span></div>
-      <div id="maxi-chat" onclick="loadChatbox()"><span class="maxi-button">&plus;</span></div>
+      <div id="maxi-chat"  onclick="loadChatbox()"><span class="maxi-button">&plus;</span></div> -->
     </div>
       <span ng-show="game.typingPlayer !== game.players[game.playerIndex].username">{{game.isTyping}}</span>
       <div>
@@ -12,17 +14,12 @@
        </ul>
         <form action="">
           <input type="hidden" id="user" value="{{game.players[game.playerIndex].username}}" />
-         <input id="chatMsg" style="width: 100%;" ng-keypress="onKeyPress()" ng-model="msg" id="m" autocomplete="off" /><button id="chatBtn" ng-click="sendChat()"></button>
+         <input id="chatMsg" class="form-control" ng-keypress="onKeyPress()" ng-model="msg" id="m" autocomplete="off" /><!-- <button id="chatBtn" ng-click="sendChat()"></button> -->
         </form>
       </div>
   </div>
-  <!--<div class="row">
-  <div class="span6">
-    <textarea id="emojionearea1"></textarea>
+  <!-- <div id="chat" class="animated-chat tada" onclick="loadChatbox()">Chat</div> -->
   </div>
-</div>-->
-
- <div id="chat" class="animated-chat tada" onclick="loadChatbox()">Chat</div>
 </div>
 
 <script>
@@ -48,20 +45,20 @@
     e.style.margin = "0 0 0px 0";
   }
 
-  // $(document).ready(function() {
-  //   $("#chatMsg").emojioneArea({
-  //     pickerPosition: "top",
-  //     events: {
-  //       keyup: function (editor, event) {
-  //           console.log(event.keyCode);
-  //           console.log(this.getText());
-  //           if (event.keyCode == 13) {
-  //             // $('#chatBtn').click(sendChat('you mad'))
-  //             $('#chatBtn').click();
-  //           }
-  //       }
-  //   	}
-  //   });
-  // });
+  // Emojis for chat
+  $(document).ready(function() {
+    $("#msgContent").emojioneArea({
+      pickerPosition: "top",
+      events: {
+        keyup: function (editor, event) {
+          angular.element('#app-container').scope().onKeyPress(this.getText());
+          if (event.which == 13) {
+            angular.element('#app-container').scope().sendChat(this.getText());
+            this.setText('');
+          }
+        }
+    	}
+    });
+  });
 
 </script>
