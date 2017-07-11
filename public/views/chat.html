@@ -24,16 +24,10 @@
    </ul>
     <form action="">
       <input type="hidden" id="user" value="{{game.players[game.playerIndex].username}}" />
-     <input id="chatMsg" style="width: 100%;" ng-keypress="onKeyPress()" ng-model="msg" id="m" autocomplete="off" /><button id="chatBtn" ng-click="sendChat()"></button>
+     <input style="width: 100%;" ng-keypress="onKeyPress()" ng-model="msg" id="msgContent" autocomplete="off" /><button id="chatBtn" ng-click="sendChat()"></button>
     </form>
     </div>
 </div>
-   
-<!--<div class="row">
-  <div class="span6">
-    <textarea id="emojionearea1"></textarea>
-  </div>
-</div>-->
 
  <div id="chat" class="animated-chat tada" onclick="loadChatbox()">Chat</div>
 
@@ -61,20 +55,20 @@
     e.style.margin = "0 0 -460px 0";
   }
 
-  // $(document).ready(function() {
-  //   $("#chatMsg").emojioneArea({
-  //     pickerPosition: "top",
-  //     events: {
-  //       keyup: function (editor, event) {
-  //           console.log(event.keyCode);
-  //           console.log(this.getText());
-  //           if (event.keyCode == 13) {
-  //             // $('#chatBtn').click(sendChat('you mad'))
-  //             $('#chatBtn').click();
-  //           }
-  //       }
-  //   	}
-  //   });
-  // });
+  // Emojis for chat
+  $(document).ready(function() {
+    $("#msgContent").emojioneArea({
+      pickerPosition: "top",
+      events: {
+        keyup: function (editor, event) {
+          angular.element('#app-container').scope().onKeyPress(this.getText());
+          if (event.which == 13) {
+            angular.element('#app-container').scope().sendChat(this.getText());
+            this.setText('');
+          }
+        }
+    	}
+    });
+  });
 
 </script>
