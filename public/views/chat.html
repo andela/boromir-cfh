@@ -1,17 +1,6 @@
 
 
-<div class="chatbox" id="chatbox" style="background: rgba(0, 0, 0, 0)">
-  <style>
-      * { margin: 0; padding: 0; box-sizing: border-box; }
-      body { font: 13px Helvetica, Arial; }
-      form { padding: 3px; width: 100%; }
-      form input { border: 0; padding: 10px; margin-right: .5%; }
-      form button {border: none;  }
-      #messages li { padding: 5px 10px; }
-      #messages {     max-height: 200px; overflow: auto;}
-      #messages li:nth-child(odd) { background: #eee; }
-    </style>
-
+<div class="chatbox" id="chatbox">
 <div>
   <div id="close-chat" onclick="closeChatbox()">&times;</div>
   <div id="minim-chat" onclick="minimChatbox()"><span class="minim-button">&minus;</span></div>
@@ -58,7 +47,7 @@
     var e = document.getElementById("maxi-chat");
     e.style.display = "block";
     var e = document.getElementById("chatbox");
-    e.style.margin = "0 0 -460px 0";
+    e.style.margin = "0 0 0px 0";
   }
 
   // $(document).ready(function() {

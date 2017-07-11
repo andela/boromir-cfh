@@ -1,25 +1,24 @@
-<div id="question-container-inner">
+<div id="question-container-inner" class="questions" >
   <div class="card longBlack">
     <span ng-bind-html-unsafe="game.curQuestion.text" ng-hide="game.state === 'game ended' || game.state ==='game dissolved' || game.state === 'awaiting players'"></span>
 
-    <div id="notifications" ng-if="game.notification" ng-animate="{enter:'animated fadeInLeft', leave:'animated fadeOut'}">{{game.notification}}</div>
+    <div id="notifications" class="text-center" ng-if="game.notification" ng-animate="{enter:'animated fadeInLeft', leave:'animated fadeOut'}">{{game.notification}}</div>
 
     <div id="startGame" ng-show="game.state === 'awaiting players'">
       <div id="finding-players">Finding Players</div>
       <div id="player-count-container">
-        <div id="player-count">{{game.players.length}} / 12 </div>
-        <div id="the-word-players"> Players </div>
+        <p id="player-count">{{game.players.length}} / 12 players available</p>
       </div>
       <div id="loading-container">
-        <div id="loading-gif"><img ng-src="../img/loader.gif"/></div>
+        <div id="loading-gif"><img ng-src="../img/flower.gif"/></div>
       </div>
-      <div id="start-game-container" ng-click="startGame()" ng-show="(game.playerIndex === 0 || game.joinOverride)">
-        <div id='start-game-button'>
-          Start Game</br>with {{game.players.length}} players
+      <div id="start-game-container" class="pull-left" ng-click="startGame()" ng-show="(game.playerIndex === 0 || game.joinOverride)">
+        <div id='start-game-button' class="btn btn-success">
+          Start Game
         </div>
       </div>
-      <div id="start-game-container">
-        <div id='start-game-button' ng-click='getUsers()'>
+      <div id="start-game-container" class="pull-right">
+        <div id='start-game-button' class="btn btn-info" ng-click='getUsers()'>
           Invite Players
         </div>
       </div>
