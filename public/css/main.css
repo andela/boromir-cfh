@@ -556,6 +556,7 @@ header .intro-text .intro-heading .info-text{
 .foot{
 	background: #373154;
 	height: 100%;
+  clear: both;
 	color: #ffffff;
 }
 
@@ -719,7 +720,7 @@ hr{
   /* Modal*/
 
  .disabledElement {
-  /* Make the disabled links grayish*/
+   /* Make the disabled links grayish*/
   background: gray !important;
   /* And disable the pointer events */
   pointer-events: none;
@@ -783,6 +784,152 @@ hr{
   border-top-color: rgb(55, 49, 84);
   border-color: rgba(55, 49, 84, 1);
 }
+
+.searchErrorMsg{
+  margin-top: 2em;
+}
+
+/*on game*/
+.timer{
+  color: #ffffff;
+  padding: 10px;
+  border-radius: 3px;
+  font-size: 16px;
+  background: #252138;
+}
+
+#time{
+  color: #ffffff;
+  font-size: 150px;
+}
+
+.questions{
+  background: whitesmoke;
+  padding: 10px;
+  max-width: 100%;
+  width: 100%;
+  height: 280px;
+  border-radius: 3px;
+}
+
+.questions p{
+  font-family: "Berkshire Swash", cursive;
+  text-align: center;
+  font-size: 18px;
+  margin-bottom: 15px;
+}
+
+#finding-players{
+  font-family: "Berkshire Swash", cursive;
+  font-size: 25px;
+  margin-top: 15px;
+  color: #252138;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+#loading-container{
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+#start-game-container{
+  margin-bottom: 100px;
+}
+
+.btn-success{
+  background: #252138;
+  font-size: 17px;
+  border: none;
+  box-shadow: 0px 1px 1px 0px #001;
+  margin-left: 10px;
+  width: 160px;
+}
+
+.btn-info{
+  background: #FC9800;
+   border: none;
+  box-shadow: 0px 1px 1px 0px #001;
+   font-size: 17px;
+   margin-right: 10px;
+   width: 160px;
+}
+
+.btn-info:hover{
+  background: #252138;
+}
+
+.btn-success:hover{
+  background: #FC9800;
+}
+
+.chat{
+
+}
+
 .playModal{
   margin-left: 8%;
+}
+
+#loading-gif img{
+  height: 50px;
+  width: 70px;
+}
+
+/*player on game*/
+#avatar_ img{
+  width: 40px;
+  height: 40px;
+}
+
+#player-container{
+  padding: 3px;
+  background: whitesmoke !important;
+  border-radius: 3px;
+}
+
+#player-name p{
+  font-family: "Berkshire Swash", cursive;
+}
+
+#player-score p{
+ margin-bottom: -2px;
+}
+
+#player-star img{
+  height: 20px;
+  width: 20px;
+}
+
+.chatbox{
+  background: whitesmoke;
+  text-align: left;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+  margin-bottom: -25px;
+}
+
+.chat-header{
+  background: #FC9800;
+  margin-left: -10px !important; 
+  margin-right: -10px !important; 
+  margin-top: -10px !important;
+  border-top-left-radius: 3px;
+  padding: 3px;
+  margin-bottom: 5px;
+  border-top-right-radius: 3px;
+}
+
+.chat-header p{
+   font-family: "Berkshire Swash", cursive;
+   text-align: center;
+   color: #ffffff;
+}
+
+#chatMsg{
+  margin-bottom: 10px;
+}
+#messages{
+  background: #ffffff;
+  padding: 5px;
 }
