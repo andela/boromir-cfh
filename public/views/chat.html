@@ -14,7 +14,8 @@
        </ul>
         <form action="">
           <input type="hidden" id="user" value="{{game.players[game.playerIndex].username}}" />
-         <input id="chatMsg" class="form-control" ng-keypress="onKeyPress()" ng-model="msg" id="m" autocomplete="off" /><!-- <button id="chatBtn" ng-click="sendChat()"></button> -->
+         <input id="chatMsg" class="form-control" ng-keypress="onKeyPress()" ng-model="msg" id="m" autocomplete="off" />
+         <!-- <button id="chatBtn" ng-click="sendChat()"></button> -->
         </form>
       </div>
   </div>
@@ -47,11 +48,12 @@
 
   // Emojis for chat
   $(document).ready(function() {
-    $("#msgContent").emojioneArea({
+    $("#chatMsg").emojioneArea({
       pickerPosition: "top",
       events: {
         keyup: function (editor, event) {
-          angular.element('#app-container').scope().onKeyPress(this.getText());
+          const typer = $('#user').val();
+          angular.element('#app-container').scope().onKeyPress(typer);
           if (event.which == 13) {
             angular.element('#app-container').scope().sendChat(this.getText());
             this.setText('');
