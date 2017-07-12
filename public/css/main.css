@@ -808,7 +808,7 @@ hr{
   padding: 10px;
   max-width: 100%;
   width: 100%;
-  height: 280px;
+  height: 270px;
   border-radius: 3px;
 }
 
@@ -819,6 +819,12 @@ hr{
   margin-bottom: 15px;
 }
 
+.questions span{
+  font-family: "Berkshire Swash", cursive;
+  text-align: center !important;
+  font-size: 26px;
+  margin-top: 100px;
+}
 #finding-players{
   font-family: "Berkshire Swash", cursive;
   font-size: 25px;
@@ -886,6 +892,7 @@ hr{
   padding: 3px;
   background: whitesmoke !important;
   border-radius: 3px;
+  margin-bottom: 5px;
 }
 
 #player-name p{
