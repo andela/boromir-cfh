@@ -11,3 +11,5 @@ bower_components/
 sendgrid.env
 scratch/
 public/lib/
+questions.json
+answers.json
