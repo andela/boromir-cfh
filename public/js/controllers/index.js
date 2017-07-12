@@ -62,7 +62,7 @@ angular.module('mean.system')
           } else {
             alert('Wrong email or user already exist');
           }
-        })
+        });
     };
 // sign in function
     $scope.signIn = function () {

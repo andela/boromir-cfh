@@ -96,4 +96,9 @@ module.exports = function (app, passport, auth) {
   // authenticated endpoint to search current users
   app.get('/api/users/search', users.search);
   app.post('/api/user/invite/:user_details', users.invitePlayers);
+
+  // create/start a new game
+  const gamelog = require('../app/controllers/gamelog');
+  app.post('/api/games/save', gamelog.saveGameLog);
+  app.get('/api/games/save', gamelog.getLogs);
 };
