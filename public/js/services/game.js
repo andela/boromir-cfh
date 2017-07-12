@@ -1,5 +1,5 @@
 angular.module('mean.system')
-  .factory('game', ['socket', '$timeout', '$location', function (socket, $timeout, $location) {
+  .factory('game', ['socket', '$http', '$timeout', '$location', function (socket, $http, $timeout, $location) {
 
   var game = {
     id: null, // This player's socket ID, so we know who this player is
@@ -224,6 +224,16 @@ angular.module('mean.system')
     socket.on('chat message', function (data) {
       game.messages.push(data);
       game.isTyping = "";
+    });
+
+    socket.on('players in game', (data) => {
+      // console.log(data);
+      if (game.state === 'game ended' && game.gameWinner === game.playerIndex) {
+        $http.post(`/api/games/save`, data)
+          .success((response) => {
+            console.log(response);
+          });
+      }
     });
 
     socket.on('someone is typing', function (data) {
