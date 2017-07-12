@@ -231,7 +231,7 @@ module.exports.invitePlayers = (req, res) => {
   });
   sg.API(request, (error) => {
     if (error) {
-      return res.json();
+      return res.status(error.response.statusCode).json();
     }
     return res.json({ sent: true });
   });

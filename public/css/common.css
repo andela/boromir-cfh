@@ -40,7 +40,7 @@
   font-size: 1em;
   padding: 1em;
   font-family: "Averia Gruesa Libre", cursive;
-  border-radius: 1em;
+  border-radius: 0.4em;
 
 }
 .modalBtn:hover{
@@ -61,7 +61,7 @@
   margin-bottom: 0.3em;
   overflow-y: scroll;
   overflow-y: auto;
-  max-height:20em;
+  max-height:14em;
 }
 .headerText{
   font-size: 1.4em;
