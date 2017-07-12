@@ -17,6 +17,10 @@ var GamelogSchema = new Schema({
         type: Object,
         default: '',
     },
+     gameId: {
+        type: String,
+        default: '',
+    },
     winner: {
         type: Object,
         default: '',

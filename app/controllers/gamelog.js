@@ -7,6 +7,7 @@ const avatars = require('./avatars').all();
 
 module.exports.saveGameLog = (req, res) => {
   const gamelog = new Gamelog();
+  gamelog.gameId = req.body.gameId;
   gamelog.players = req.body.players;
   gamelog.winner = req.body.winner;
   gamelog.save((err) => {

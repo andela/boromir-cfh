@@ -152,11 +152,11 @@ Game.prototype.prepareGame = function () {
           self.answers = newAnswers;
         } else {
           self.questions = results[0];
-          self.answers = results[0];
+          self.answers = results[1];
         }
       } else {
         self.questions = results[0];
-        self.answers = results[0];
+        self.answers = results[1];
       }
       self.startGame();
     });
@@ -262,7 +262,7 @@ Game.prototype.stateEndGame = function (winner) {
     currentPlayers.push({ username: log.username, email: log.email, avatar: log.avatar, userID: log.userID });
   });
   this.sendUpdate();
-  this.io.sockets.in(this.gameID).emit('players in game', { players: currentPlayers, winner: winnerData });
+  this.io.sockets.in(this.gameID).emit('players in game', { gameId: this.gameID, players: currentPlayers, winner: winnerData });
 };
 
 Game.prototype.stateDissolveGame = function () {

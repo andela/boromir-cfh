@@ -322,3 +322,8 @@ module.exports.jwtSignIn = (req, res) => {
     }
   );
 };
+
+
+module.exports.setRegion = (req, res) => {
+  localStorage.setItem('player_region', req.body.player_region);
+};
