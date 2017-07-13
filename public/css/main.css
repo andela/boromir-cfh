@@ -5,13 +5,20 @@
   font-family: 'Averia Gruesa Libre', cursive;
 }
 
+html
+{
+    position: relative;
+    min-height: 100%;
+}
+
 body {
-  background:linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),url('../img/cross-culture.jpg') center center fixed !important;
+  background:linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),url('../img/cross-culture.jpg') no-repeat !important;
   -webkit-background-size: cover;
   -moz-background-size: cover;
+  background-attachment: fixed;
+  background-position: center right, top left !important;
   -o-background-size: cover !important;
   background-size: cover !important;
-	background-repeat: no-repeat !important;
 }
 
 /* Navbar */
@@ -581,9 +588,11 @@ header .intro-text .intro-heading .info-text{
 
 
 /*sign up page*/
-.form-horizontal{
+./*form-horizontal{
   margin-top:40px;
-}
+}*/
+
+
 .signup-text{
   color: black
 }
@@ -614,7 +623,8 @@ header .intro-text .intro-heading .info-text{
 }
 
 .panel-default{
-  margin-bottom: 25%;
+  margin-bottom: 45px;
+  z-index: 99;
 }
 
 .panel {
@@ -643,16 +653,13 @@ li {
   font-size: 25px;
 }
 
-hr{
-  padding: -50px;
-}
-
 .form-group .btn-default{
   background: #FC9800;
   color: white;
   border: none;
   width: 70%;
 }
+
 .form-group .btn-default:hover{
   background: #c98c2a;
 }
@@ -676,8 +683,6 @@ hr{
 } 
 
 .form-actions .btn-default{
-  margin-top: 50px;
-  margin-bottom: 25%;
   border: none;
   background: #FC9800;
   color: white;
@@ -793,6 +798,7 @@ hr{
 .timer{
   color: #ffffff;
   padding: 10px;
+  margin-top: -35px;
   border-radius: 3px;
   font-size: 16px;
   background: #252138;
@@ -801,14 +807,22 @@ hr{
 #time{
   color: #ffffff;
   font-size: 150px;
+  margin-top: -32px;
+}
+
+#donateBox{
+  height: 150px;
+  width: 150px;
+  margin-right: 20px;
 }
 
 .questions{
   background: whitesmoke;
+  margin-top: -35px;
   padding: 10px;
   max-width: 100%;
   width: 100%;
-  height: 280px;
+  height: 230px;
   border-radius: 3px;
 }
 
@@ -816,26 +830,35 @@ hr{
   font-family: "Berkshire Swash", cursive;
   text-align: center;
   font-size: 18px;
-  margin-bottom: 15px;
+  margin-bottom: 5px;
 }
 
+.questions span{
+  font-family: "Berkshire Swash", cursive;
+  text-align: center !important;
+  font-size: 26px;
+  margin-top: 100px;
+}
 #finding-players{
   font-family: "Berkshire Swash", cursive;
   font-size: 25px;
-  margin-top: 15px;
   color: #252138;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   text-align: center;
+}
+
+#social-bar-container{
+  margin-top: -35px;
 }
 
 #loading-container{
   text-align: center;
-  margin-bottom: 40px;
+  margin-bottom: 35px;
 }
 
-#start-game-container{
+/*#start-game-container{
   margin-bottom: 100px;
-}
+}*/
 
 .btn-success{
   background: #252138;
@@ -863,10 +886,6 @@ hr{
   background: #FC9800;
 }
 
-.chat{
-
-}
-
 .playModal{
   margin-left: 8%;
 }
@@ -886,6 +905,7 @@ hr{
   padding: 3px;
   background: whitesmoke !important;
   border-radius: 3px;
+  margin-bottom: 5px;
 }
 
 #player-name p{
@@ -906,7 +926,8 @@ hr{
   text-align: left;
   border-top-left-radius: 3px;
   border-top-right-radius: 3px;
-  margin-bottom: -25px;
+  padding-bottom: 10px;
+  width: 250px;
 }
 
 .chat-header{
@@ -916,7 +937,6 @@ hr{
   margin-top: -10px !important;
   border-top-left-radius: 3px;
   padding: 3px;
-  margin-bottom: 5px;
   border-top-right-radius: 3px;
 }
 
@@ -926,10 +946,129 @@ hr{
    color: #ffffff;
 }
 
-#chatMsg{
-  margin-bottom: 10px;
+.message{
+  
 }
+
 #messages{
-  background: #ffffff;
-  padding: 5px;
+  max-height: 100px;
+  overflow: auto;
 }
+
+#messages .message{
+  background: #ffffff;
+  border-radius: 2px;
+  padding: 5px;
+  border: 1px solid #e1e1e1;
+  margin: 2px;
+}
+
+/*answers*/
+.card-answers{
+  margin-top: -110px;
+  margin-left: 13px;
+  margin-bottom: 110px;
+}
+
+#answers{
+  background: whitesmoke;
+  padding: 5px;
+  border-radius: 3px;
+  margin: 5px;
+  width: 155px;
+  height: 200px;
+}
+
+.game-end-headline{
+  font-family: "Berkshire Swash", cursive;
+  text-align: center;
+  margin-top: 87px;
+  font-size: 15px;
+}
+
+#game-end-container{
+  background: whitesmoke;
+  margin-top: 40px;
+  padding: 5px;
+  border-radius: 3px;
+}
+
+.game-end-answer-text h2{
+  
+  font-size: 18px;font-family: "Berkshire Swash", cursive;
+  text-align: center;
+  margin-bottom: 30px
+  margin-top: 20px;
+}
+
+.game-end-answer-text p{
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 15px;
+}
+
+#inner-text-container{
+  margin-top: 30px;
+  margin-bottom: 23px;
+}
+
+
+#inner-text-container .btn-success{
+  margin-right: 20px;
+}
+
+.gradientButton{
+  width: 100% !important;
+}
+
+#crDonateWidget_cfhio_cards4humanity{
+  width: 260px !important; 
+  margin-top: -35px !important;
+}
+
+#czar-blank-inner{
+  color: whitesmoke;
+  margin-top: -100px;
+  margin-bottom: -2em;
+  margin-left: 2em;
+}
+
+#czar-blank-inner h2{
+  font-family: "Berkshire Swash", cursive;
+  text-align: center;
+  margin-bottom: 30px
+  margin-top: 60px;
+}
+
+
+#charity-fact-container{
+  border-radius: 3px;
+  background: whitesmoke;
+  width: 260px;
+  margin-top: 20px;
+  padding: 5px;
+
+}
+
+.foot-game{
+  position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 100px;
+    width: 100%;
+}
+
+.timer-status-round{
+  color: whitesmoke;
+}
+
+
+
+
+
+
+
+
+
+
+

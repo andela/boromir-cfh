@@ -1,10 +1,10 @@
-<div id="question-container-inner" class="questions clearfix" >
+<div id="question-container-inner" class="questions" >
   <div class="card longBlack">
-    <span ng-bind-html-unsafe="game.curQuestion.text" ng-hide="game.state === 'game ended' || game.state ==='game dissolved' || game.state === 'awaiting players'"></span>
+    <span  class="question-text" ng-bind-html-unsafe="game.curQuestion.text" ng-hide="game.state === 'game ended' || game.state ==='game dissolved' || game.state === 'awaiting players'"></span>
 
     <div id="notifications" class="text-center" ng-if="game.notification" ng-animate="{enter:'animated fadeInLeft', leave:'animated fadeOut'}">{{game.notification}}</div>
 
-    <div id="startGame" class="clearfix" ng-show="game.state === 'awaiting players'">
+    <div id="startGame" ng-show="game.state === 'awaiting players'">
       <div id="finding-players">Finding Players</div>
       <div id="player-count-container">
         <p id="player-count">{{game.players.length}} / 12 players available</p>
@@ -12,22 +12,24 @@
       <div id="loading-container">
         <div id="loading-gif"><img ng-src="../img/human.gif"/></div>
       </div>
-      <div id="start-game-container" class="pull-left" ng-click="startGame()" ng-show="(game.playerIndex === 0 || game.joinOverride)">
+      <div class="clearfix">
+        <a id="start-game-container" class="pull-left" ng-click="startGame()" ng-show="(game.playerIndex === 0 || game.joinOverride)">
         <div id='start-game-button' class="btn btn-success">
           Start Game
         </div>
-      </div>
-      <div id="start-game-container" class="pull-right">
+      </a>
+      <a id="start-game-container" class="pull-right">
         <div id='start-game-button' class="btn btn-info" ng-click='getUsers()'>
           Invite Players
         </div>
+      </a>
       </div>
     </div>
     <!-- Game Over Stuff -->
     <div id="game-end-info">
       <div id="people-left-game-top" ng-show="game.state ==='game dissolved' && game.gameWinner === -1">
         <div class="game-end-headline">What the!? The game ended because too many people left! </div>
-        Our sincere apologies.
+        <p class="text-center"> Our sincere apologies.</p>
       </div>
       <div ng-show="game.state === 'game ended' && game.gameWinner === game.playerIndex">
         <div class="game-end-headline">Congratulations! You won the game, {{game.players[game.playerIndex].username | upperFirstLetter}}!</div>We hope you feel special. If you'd like to share that special feeling with the world, consider donating to charity. Or just horde it all for youself.
@@ -93,21 +95,21 @@
 <div id="game-end-container" ng-show="game.state === 'game ended' || game.state ==='game dissolved'">
     <div id="inner-info-exit" class="center text-center">
       <div class="game-end-answer-text" ng-show="game.state ==='game dissolved' && game.gameWinner === -1">
-        <h4>What would you like to do now?</h4>
-        You might consider donating to charity to atone for the horrifying answers you've submitted. Donating will also place a lovely
-        crown on your avatar's head.
+        <h2>What would you like to do now?</h2>
+        <p>You might consider donating to charity to atone for the horrifying answers you've submitted. Donating will also place a lovely crown on your avatar's head.</p>
       </div>
-      <div class="game-end-answer-text" ng-show="game.state === 'game ended' || game.gameWinner !== -1">
-        <h4>What would you like to do now?</h4>
-        Help yourself to another game or help a child in need? Donating will also place a lovely crown on your avatar's head.
+      <div class="game-end-answer-text text-center" ng-show="game.state === 'game ended' || game.gameWinner !== -1">
+        <h2>What would you like to do now?</h2>
+        <p>Help yourself to another game or help a child in need? Donating will also place a lovely crown on your avatar's head.
+        </p>
       </div>
-      <div id='inner-text-container'>
-        <a href='/#!/app' class="waves-effect waves-light btn" id="joinGame">
+      <div id='inner-text-container' class="clearfix">
+        <a href='/#!/app' class="waves-effect waves-light btn btn-success" id="joinGame">
           <div id="join-new-game" ng-click="game.joinGame('joinNewGame')">
             Join a New Game
           </div>
         </a>
-        <a href='/' class="waves-effect waves-light btn" id="lobby">
+        <a href='/' class="waves-effect waves-light btn btn-info" id="lobby">
           <div id="exit-match">
             Return to Lobby
           </div>
