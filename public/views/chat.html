@@ -13,7 +13,7 @@
         <div class="form">
          <form action="">
             <input type="hidden" id="user" value="{{game.players[game.playerIndex].username}}" />
-           <input id="chatMsg" class="form-control" ng-keypress="onKeyPress()" ng-model="msg" id="m" autocomplete="off" />
+           <input id="chatMsg" class="form-control" ng-keypress="onKeyPress()" ng-model="msg" id="m" autocomplete="off"  placeholder="type a message......"/>
           </form>
        </div>
     </div>
@@ -53,6 +53,7 @@
           angular.element('#app-container').scope().onKeyPress(typer);
           if (event.which == 13) {
             angular.element('#app-container').scope().sendChat(this.getText());
+            $("#messages").animate({ scrollTop: $('#messages').prop("scrollHeight")}, 1000);
             this.setText('');
           }
         }

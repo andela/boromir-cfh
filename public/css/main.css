@@ -19,6 +19,7 @@ body {
   background-position: center right, top left !important;
   -o-background-size: cover !important;
   background-size: cover !important;
+  overflow-x: hidden;
 }
 
 /* Navbar */
@@ -547,7 +548,7 @@ header .intro-text .intro-heading .info-text{
 	font-size: 17px;
 	width: 100%;
 	padding-top: 50px;
-	padding-bottom: 30px;
+	padding-bottom: 60px;
 }
 
 .about-us h2{
@@ -688,6 +689,7 @@ li {
   color: white;
   border: none;
   width: 70%;
+  margin-bottom: 23%;
   font-size: 20px;
   padding: 15px;
 }
