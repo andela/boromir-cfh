@@ -100,6 +100,6 @@ module.exports = function (app, passport, auth) {
 
   // create/start a new game
   const gamelog = require('../app/controllers/gamelog');
-  app.post('/api/games/save', gamelog.saveGameLog);
+  app.post('/games/save', gamelog.saveGameLog);
   app.get('/api/games/save', gamelog.getLogs);
 };
