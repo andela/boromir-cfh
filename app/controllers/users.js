@@ -135,18 +135,18 @@ exports.avatars = function (req, res) {
   }
   return res.redirect('/#!/app');
 };
-
-exports.addDonation = function (req, res) {
+// donations
+exports.addDonation = function(req, res) {
   if (req.body && req.user && req.user._id) {
     // Verify that the object contains crowdrise data
     if (req.body.amount && req.body.crowdrise_donation_id && req.body.donor_name) {
       User.findOne({
         _id: req.user._id
       })
-      .exec((err, user) => {
+      .exec(function(err, user) {
         // Confirm that this object hasn't already been entered
-        let duplicate = false;
-        for (let i = 0; i < user.donations.length; i++) {
+        var duplicate = false;
+        for (var i = 0; i < user.donations.length; i++ ) {
           if (user.donations[i].crowdrise_donation_id === req.body.crowdrise_donation_id) {
             duplicate = true;
           }
@@ -161,6 +161,23 @@ exports.addDonation = function (req, res) {
     }
   }
   res.send();
+};
+
+exports.getDonations = (req, res) => {
+  User.find()
+  .then((response) => {
+    if (response.length === 0) {
+      return res.send({ message: 'no data' });
+    }
+    let donationData = [];
+    response.forEach((array) => {
+      donationData.push({ name: array.name, avatar: array.avatar, donations: array.donations.length });
+    });
+    res.send(donationData);
+  })
+  .catch((error) => {
+    res.send(error);
+  });
 };
 
 /**
@@ -326,4 +343,11 @@ module.exports.jwtSignIn = (req, res) => {
 
 module.exports.setRegion = (req, res) => {
   localStorage.setItem('player_region', req.body.player_region);
+};
+
+module.exports.getLeaderBoard = (req, res) => {
+  User.find({}).sort({ })
+  .exec((err, records) => {
+    res.send(records);
+  });
 };

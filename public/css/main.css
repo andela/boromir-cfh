@@ -933,3 +933,13 @@ hr{
   background: #ffffff;
   padding: 5px;
 }
+/** dashboard  **/
+.user-profile{
+}
+.col-md-4, .col-md-2 {
+  border-right: 1px solid black;
+  color: black;
+}
+.table{
+  background-color: white;
+}
