@@ -56,10 +56,10 @@ $(document).ready(function() {
               A GAME FOR HORRIBLE PEOPLE <span>DESPERATELY</span>
               <div class="trying-to">TRYING TO DO GOOD</div>
             </div>
-            <span ng-show="showOptions">
+            <span ng-show="showOptions" ng-controller="IndexController">
             <div class="button">
               <a href="#!/signup" class="btn btn-info">SIGN UP</a>
-              <a href="/play" class="btn btn-default">PLAY AS A GUEST</a>
+              <button ng-click="showRegionGuest()" class="btn btn-default">PLAY AS A GUEST</button>
             </div>
             </span>
             <span ng-hide="showOptions" ng-controller="IndexController">
@@ -248,6 +248,34 @@ $(document).ready(function() {
                   </button>
                    <button class="modalBtn" ng-click="playWithFriends()" >
                     PLAY WITH FRIENDS
+                  </button>
+                  <button data-dismiss="modal" class="modalBtn">Cancel</button>
+                </div>
+              <div class="modal-footer">Cards for Humanity</div> 
+          </div> 
+      </div> 
+  </div> 
+
+    <!-- Guest  Select Region -->
+  <div class="modal" id="select-region-guest" tabindex="-1" role="document" ng-controller="IndexController" aria-labelledby="myModalLabel"
+  aria-hidden="true" style="overflow-y:hidden;"> 
+      <div class="modal-dialog panel"> 
+          <div class="modal-content"> 
+              <div class="modal-header popUpHeader"> 
+                <h3 class="modal-title">Select Region</h3> 
+              </div> 
+              <div class="modal-body">
+                <div class="headerText usernameHeader"><span>Select Region</span></div>
+                <div  class="modalHeight">
+                 <select ng-model="region" class="form-control">
+                   <option value="NG">Nigeria</option>
+                   <option value="UK">United Kingdom</option>
+                 </select>
+                </div>
+                </div> 
+                <div class='allModalBtn playModal'>
+                  <button class="modalBtn" ng-click="playWithStrangers()" >
+                    PLAY GAME
                   </button>
                   <button data-dismiss="modal" class="modalBtn">Cancel</button>
                 </div>
