@@ -19,6 +19,7 @@ body {
   background-position: center right, top left !important;
   -o-background-size: cover !important;
   background-size: cover !important;
+  overflow-x: hidden;
 }
 
 /* Navbar */
@@ -944,10 +945,6 @@ li {
    font-family: "Berkshire Swash", cursive;
    text-align: center;
    color: #ffffff;
-}
-
-.message{
-  
 }
 
 #messages{

@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row">
-    <div class="chatbox col-md-3 " id="chatbox">
+    <div class="chatbox col-md-3" id="chatbox">
       <div class="chat-header">
         <p class="title">Chat Box</p>
       </div>
@@ -13,7 +13,7 @@
         <div class="form">
          <form action="">
             <input type="hidden" id="user" value="{{game.players[game.playerIndex].username}}" />
-           <input id="chatMsg" class="form-control" ng-keypress="onKeyPress()" ng-model="msg" id="m" autocomplete="off" />
+           <input id="chatMsg" class="form-control" ng-keypress="onKeyPress()" ng-model="msg" placeholder="type a message......." id="m" autocomplete="off" />
           </form>
        </div>
     </div>
