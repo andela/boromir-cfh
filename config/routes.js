@@ -14,6 +14,8 @@ module.exports = function (app, passport, auth) {
 
   // Donation Routes
   app.post('/donations', users.addDonation);
+  app.get('/api/donations', users.getDonations);
+
 
   app.post('/users/session', passport.authenticate('local', {
     failureRedirect: '/signin',
@@ -100,6 +102,7 @@ module.exports = function (app, passport, auth) {
 
   // create/start a new game
   const gamelog = require('../app/controllers/gamelog');
-  app.post('/api/games/save', gamelog.saveGameLog);
-  app.get('/api/games/save', gamelog.getLogs);
+  app.post('/games/save', gamelog.saveGameLog);
+  app.get('/api/leaderboard', gamelog.getLeaderBoard);
+  app.get('/api/game/history', gamelog.gameHistory);
 };

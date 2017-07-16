@@ -7,6 +7,11 @@ angular.module('mean.system')
       myModal.modal('show');
     };
 
+    $scope.showRegionGuest = function () {
+      const myModal = $('#select-region-guest');
+      myModal.modal('show');
+    };
+
     $scope.playAsGuest = function () {
       game.joinGame();
       $location.path('/app');

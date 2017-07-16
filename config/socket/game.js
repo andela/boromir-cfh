@@ -155,9 +155,9 @@ Game.prototype.prepareGame = function () {
           self.answers = results[1];
         }
       } else {
-        self.questions = results[0];
-        self.answers = results[1];
-      }
+            self.questions = results[0];
+            self.answers = results[1];
+          }
       self.startGame();
     });
 };
@@ -167,15 +167,55 @@ Game.prototype.startGame = function () {
   console.log(this.gameID, this.state);
   this.shuffleCards(this.questions);
   this.shuffleCards(this.answers);
-  this.stateChoosing(this);
+  this.changeCzar(this);
+  this.sendUpdate();
+  // this.stateChoosing(this);
 };
+
+Game.prototype.changeCzar = (self) => {
+  self.state = 'czar pick card';
+  self.table = [];
+  if (self.czar >= self.players.length - 1) {
+    self.czar = 0;
+  } else {
+    self.czar += 1;
+  }
+  self.sendUpdate();
+};
+
 
 Game.prototype.sendUpdate = function () {
   this.io.sockets.in(this.gameID).emit('gameUpdate', this.payload());
 };
 
 Game.prototype.stateChoosing = function (self) {
-  self.state = "waiting for players to pick";
+  // self.state = "waiting for players to pick";
+  // // console.log(self.gameID,self.state);
+  // self.table = [];
+  // self.winningCard = -1;
+  // self.winningCardPlayer = -1;
+  // self.winnerAutopicked = false;
+  // self.curQuestion = self.questions.pop();
+  // if (!self.questions.length) {
+  //   self.getQuestions(function (err, data) {
+  //     self.questions = data;
+  //   });
+  // }
+  // self.round++;
+  // self.dealAnswers();
+  // // Rotate card czar
+  // if (self.czar >= self.players.length - 1) {
+  //   self.czar = 0;
+  // } else {
+  //   self.czar++;
+  // }
+  // self.sendUpdate();
+
+  // self.choosingTimeout = setTimeout(function () {
+  //   self.stateJudging(self);
+  // }, self.timeLimits.stateChoosing * 1000);
+
+   self.state = "waiting for players to pick";
   // console.log(self.gameID,self.state);
   self.table = [];
   self.winningCard = -1;
@@ -189,12 +229,6 @@ Game.prototype.stateChoosing = function (self) {
   }
   self.round++;
   self.dealAnswers();
-  // Rotate card czar
-  if (self.czar >= self.players.length - 1) {
-    self.czar = 0;
-  } else {
-    self.czar++;
-  }
   self.sendUpdate();
 
   self.choosingTimeout = setTimeout(function () {
@@ -248,7 +282,7 @@ Game.prototype.stateResults = function (self) {
       self.stateEndGame(winner);
 
     } else {
-      self.stateChoosing(self);
+      self.changeCzar(self);
     }
   }, self.timeLimits.stateResults * 1000);
 };
@@ -461,5 +495,14 @@ Game.prototype.killGame = function () {
   clearTimeout(this.choosingTimeout);
   clearTimeout(this.judgingTimeout);
 };
+
+Game.prototype.startNextRound = (self) => {
+  if (self.state === 'czar pick card') {
+    self.stateChoosing(self);
+  } else if (self.state === 'czar left game') {
+    self.changeCzar(self);
+  }
+};
+
 
 module.exports = Game;
