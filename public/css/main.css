@@ -1121,3 +1121,7 @@ form{
   background-color: rgba(55, 49, 84, 1);
   color: white;
 }
+
+.center .shuffle{
+  margin-left: 5% !important;
+}

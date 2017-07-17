@@ -94,7 +94,7 @@ module.exports = function (app, passport, auth) {
   // Boromir JWT API
   app.post('/api/auth/signin', users.jwtSignIn);
   app.post('/api/auth/signup', users.jwtsignup);
-  app.post('/api/setregion', users.setRegion);
+  app.post('/setregion', users.setRegion);
 
   // authenticated endpoint to search current users
   app.get('/api/users/search', users.search);
@@ -102,7 +102,7 @@ module.exports = function (app, passport, auth) {
 
   // create/start a new game
   const gamelog = require('../app/controllers/gamelog');
-  app.post('/games/save', gamelog.saveGameLog);
+  app.post('/api/games/save', gamelog.saveGameLog);
   app.get('/api/leaderboard', gamelog.getLeaderBoard);
   app.get('/api/game/history', gamelog.gameHistory);
 };
