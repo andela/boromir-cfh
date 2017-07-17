@@ -19,7 +19,84 @@ angular.module('mean.system')
       $scope.msg = '';
     };
 
+    $scope.setCookie = (cname, cvalue, exdays) => {
+    var d = new Date();
+    d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+    var expires = "expires="+d.toUTCString();
+    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+  }
+  $scope.setCookie();
+$scope.getCookie = (cname) => {
+    var name = cname + "=";
+    var ca = document.cookie.split(';');
+    for(var i = 0; i < ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0) == ' ') {
+            c = c.substring(1);
+        }
+        if (c.indexOf(name) == 0) {
+            return c.substring(name.length, c.length);
+        }
+    }
+    return "";
+  }
 
+$scope.checkCookie = () => {
+  var user = $scope.getCookie("username");
+      if (user === '') {
+          $scope.setCookie("username", 'user', 365);
+          setTimeout(function(){
+            var intro = introJs();
+          intro.setOptions({
+            steps: [
+              {
+                intro: "Hi, I'm Elo. I'm pumped up to get playing this game. Click Next to get Started. You can turn me off anytime by clicking Skip."
+              },
+              {
+                element: document.querySelector('#startGame'),
+                intro: "Questions will appear here"
+              },
+              {
+                element: document.querySelector('#cards'),
+                intro: "Answer cards will appear here. Choose the best answer for the given question",
+                position: 'top'
+              },
+              {
+                element: document.querySelector('#inner-timer-container'),
+                intro: "You'll have 20 seconds per question. Your time will appear here."
+              },
+              {
+                element: document.querySelector('#invite'),
+                intro: "Use this link to invite users who HAVE CFH accounts"
+              },
+              {
+                element: document.querySelector('#start'),
+                intro: "Use this link to start the game"
+              },
+              {
+                element: document.querySelector('#chat-id'),
+                intro: "You can chat with other players here"
+              },
+              {
+                element: document.querySelector('#abandon-game-button'),
+                intro: "Click on this button to abandon the game at any time"
+              },
+              {
+                element: document.querySelector('#player-container'),
+                intro: "This panel shows you the players in the game and the number of questions answered by each player. A player who answers 5 questions correctly WINS."
+              },
+              {
+                element: document.querySelectorAll('#step2')[0],
+                intro: "Ready? Get Started by inviting at least 3 players. Maximum number of players is 12",
+                position: 'right'
+              }
+            ]
+          });
+          intro.start();
+        }, 1000);
+      } 
+  }
+$scope.checkCookie();
     $scope.pickCard = function (card) {
       if (!$scope.hasPickedCards) {
         if ($scope.pickedCards.indexOf(card.id) < 0) {
