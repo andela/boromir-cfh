@@ -24,6 +24,10 @@ angular.module('mean.system')
 
 
   $scope.showDonations = () => {
+    angular.element('#games').removeClass("active");
+    angular.element('#donations').addClass("active");
+    angular.element('#leaderboard').removeClass("active");
+
     if ($scope.donationData.length === 0) {
       $scope.noDonations = true;
       $scope.donations = false;
@@ -37,13 +41,24 @@ angular.module('mean.system')
   };
 
   $scope.showGames = () => {
+    angular.element('#games').addClass("active");
+    angular.element('#donations').removeClass("active");
+    angular.element('#leaderboard').removeClass("active");
+
+
     $scope.noDonations = false;
 
     $scope.gameLog = true;
     $scope.donations = false;
     $scope.leaderboard = false;
   };
+
   $scope.showLeaderBoard = () => {
+    angular.element('#games').removeClass("active");
+    angular.element('#donations').removeClass("active");
+    angular.element('#leaderboard').addClass("active");
+
+
     $scope.noDonations = false;
 
     $scope.leaderboard = true;
