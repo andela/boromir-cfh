@@ -229,6 +229,7 @@ header {
   width: 100%;
   color: white;
 }
+
 header .intro-text {
   padding-top: 100px;
   padding-bottom: 50px;
@@ -352,6 +353,7 @@ header .intro-text .intro-heading .white-card{
  font-family: 'Averia Gruesa Libre', cursive;
 }
 
+
 header .intro-text .intro-heading .black-card{
   font-family: "Averia Gruesa Libre", cursive;
  	height: 350px;
@@ -448,8 +450,8 @@ header .intro-text .intro-heading .info-text{
 }
 
 .what-is h3{
-	margin-top: -10px !important;
-	margin-bottom: 30px;
+	margin-top: -16px !important;
+	margin-bottom: -5px;
 	font-size: 30px;
 	text-align: center;
 	font-family: "Berkshire Swash", cursive;
@@ -516,8 +518,12 @@ header .intro-text .intro-heading .info-text{
 	font-size: 15px;
 }
 
-.donations-info a, #slogan-head h4 a{
+#landing-charity a, .donations-info a, #slogan-head h4 a{
 	color: #FC9800 !important;
+}
+
+#landing-charity a{
+  margin-bottom: 20px;
 }
 
 #slogan-head{
@@ -928,8 +934,15 @@ li {
   border-top-right-radius: 3px;
   padding-bottom: 10px;
   width: 250px;
-  y-index: 99;
-  position: relative;
+  position: absolute;
+  left: 10px;
+  bottom: -170px;
+}
+
+.chatting{
+  margin-top: 13.5%;
+  bottom: 0px;
+  right: 0px;
 }
 
 .chat-header{
@@ -948,9 +961,13 @@ li {
    color: #ffffff;
 }
 
+#chatMsg{
+}
+
 #messages{
-  max-height: 100px;
   overflow: auto;
+  bottom: 0;
+  max-height: 100px;
 }
 
 #messages .message{
@@ -959,13 +976,14 @@ li {
   padding: 5px;
   border: 1px solid #e1e1e1;
   margin: 2px;
+  width: 100%;
 }
 
 /*answers*/
 .card-answers{
-  margin-top: -110px;
-  margin-left: 13px;
-  margin-bottom: 110px;
+  margin-top: -47px;
+  margin-left: 22px;
+  margin-bottom: -36px;
 }
 
 #answers{
@@ -1026,9 +1044,9 @@ li {
 
 #czar-blank-inner{
   color: whitesmoke;
-  margin-top: -100px;
+  margin-top: -33px;
   margin-bottom: -2em;
-  margin-left: 2em;
+  margin-left: 7em;
 }
 
 #czar-blank-inner h2{
@@ -1043,17 +1061,18 @@ li {
   border-radius: 3px;
   background: whitesmoke;
   width: 260px;
-  margin-top: 20px;
+  margin-top: 168px;
   padding: 5px;
+  margin-bottom: -22px;
 
 }
 
 .foot-game{
+  height: 100px;
+  width: 100%;
   position: absolute;
-    left: 0;
-    bottom: 0;
-    height: 100px;
-    width: 100%;
+  left: 0;
+  bottom: -117px;
 }
 
 .timer-status-round{
@@ -1087,6 +1106,11 @@ li {
   content: '.';
 }
 
+/*form */
+
+form{
+  
+}
 
 
 
