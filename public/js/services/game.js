@@ -239,7 +239,7 @@ angular.module('mean.system')
 
     socket.on('players in game', (data) => {
       if (game.state === 'game ended' && game.gameWinner === game.playerIndex) {
-        $http.post(`/games/save`, data)
+        $http.post(`/api/games/save`, data)
           .success((response) => {
             console.log(response);
           });

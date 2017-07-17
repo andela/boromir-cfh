@@ -342,6 +342,7 @@ module.exports.jwtSignIn = (req, res) => {
 
 
 module.exports.setRegion = (req, res) => {
+  console.log('......');
   localStorage.setItem('player_region', req.body.player_region);
 };
 
