@@ -22,11 +22,11 @@ angular.module('mean.system')
         alert('Please Select your Region');
         return;
       }
+      $scope.data = { player_region: $scope.region };
       $http.post('/setregion', $scope.data)
         .success(function (data) {
-          console.log('s')
+          console.log(data);
         });
-      localStorage.setItem('player_region', $scope.region);
       const myModal = $('#select-region');
       myModal.modal('hide');
       $window.location.href = '/play';
