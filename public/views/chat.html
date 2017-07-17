@@ -1,6 +1,6 @@
 <div id="chat-id" class="container">
   <div class="row">
-    <div class="chatbox col-md-3 " id="chatbox">
+    <div class="chatbox col-md-3" id="chatbox">
       <div class="chat-header">
         <p class="title">Chat Box</p>
       </div>
@@ -10,10 +10,10 @@
              <li class="message" ng-repeat="message in game.messages">{{message.name}}: {{message.chat}}</li>
            </ul>
         </div>
-        <div class="form">
+        <div class="form afix">
          <form action="">
             <input type="hidden" id="user" value="{{game.players[game.playerIndex].username}}" />
-           <input id="chatMsg" class="form-control" ng-keypress="onKeyPress()" ng-model="msg" id="m" autocomplete="off"  placeholder="type a message......"/>
+           <input id="chatMsg" class="form-control input-group" ng-keypress="onKeyPress()" ng-model="msg" id="m" autocomplete="off"  placeholder="type a message......"/>
           </form>
        </div>
     </div>

@@ -2,7 +2,7 @@
   <div id="cards" class='hand'>
     <span ng-show="winnerPicked()"></span>
 
-    <div class="col-md-9 card-answers pull-left">
+    <div class="card-answers pull-left">
       <div ng-style="{'cursor':'pointer'}" class="card col-md-2 smallest" id='answers' ng-click="pickCard(card)" ng-hide="showTable || isCzar()"
     ng-repeat="card in game.players[game.playerIndex].hand" ng-animate="{enter:'animated fadeInUp', leave: 'animated fadeInOut'}">
         <span ng-bind-html-unsafe="card.text"></span>
@@ -11,7 +11,7 @@
       </div>
     </div>
     
-    <div class="col-md-9 card-answers pull-left">
+    <div class="card-answers pull-left">
       <span ng-repeat="answer in game.table">
         <div class="card col-md-2 smallest" id='answers' ng-style="pointerCursorStyle()" id='table' ng-click="pickWinning(answer)" ng-show="showTable || isCzar()"
         ng-repeat="card in answer.card" ng-animate="{enter:'animated bounceInLeft'}" style="background-color:{{winningColor($parent.$index)}}">
@@ -24,7 +24,7 @@
   </div>
 </div>
 
-<div id="czar-blank-container" ng-show="isCzar() && game.table.length===0 && game.state !== 'game dissolved' && game.state !== 'awaiting players'">
+<div id="czar-blank-container" class="clear-fix" ng-show="isCzar() && game.table.length===0 && game.state !== 'game dissolved' && game.state !== 'awaiting players'">
   <div id='charity-fact-container' class="text-center pull-left">
     <div id='charity-fact-tagline'>Did you know?</div>
     <div id='charity-fact'>
