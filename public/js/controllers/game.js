@@ -66,12 +66,17 @@ angular.module('mean.system')
       method: 'GET',
       url: 'api/users/search'
     }).then((response) => {
-      response.data.map((eachUser) => {
+      if (response.data.length > 0) {
+        response.data.map((eachUser) => {
         // Excludes current user from the list of users that can recieve invites
-        if (eachUser.email !== localStorage.email && eachUser.name) {
-          $scope.allUsers.push(eachUser);
-        }
-      });
+          if (eachUser.email !== localStorage.email && eachUser.name) {
+            $scope.allUsers.push(eachUser);
+          }
+        });
+      } else { // When user is not authenticated or session has expired
+        myModal.find('.searchErrorMsg')
+        .text('Your session has expired, kindly re-sign into the app');
+      }
     });
     $scope.filteredUsers = $scope.allUsers;
   };

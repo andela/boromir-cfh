@@ -53,11 +53,13 @@
       events: {
         keyup: function (editor, event) {
           const typer = $('#user').val();
+          const message = $('#chatMsg');
           angular.element('#app-container').scope().onKeyPress(typer);
-          if (event.which == 13) {
+          if (event.which === 13) {
+            $('.emojionearea-editor').trigger('blur');
             angular.element('#app-container').scope().sendChat(this.getText());
             this.setText('');
-          }
+          } //U+0026  &darr
         }
     	}
     });
